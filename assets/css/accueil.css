@@ -1,0 +1,75 @@
+/* CSS1 */
+body {
+    font-family: 'Roboto', sans-serif; /* Polices futuristes */
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Fond sombre */
+    color: #fff; /* Texte blanc */
+}
+
+header {
+    background-color: #1f1f1f; /* Fond header sombre */
+    padding: 20px;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Ombre sous le header */
+}
+
+h1 {
+    margin: 0;
+    font-size: 36px;
+    color: #fff; /* Texte blanc */
+    text-shadow: 0 0 10px #55b9f3, 0 0 20px #55b9f3, 0 0 30px #55b9f3, 0 0 40px #1f08b1, 0 0 70px #1f08b1, 0 0 80px #1f08b1, 0 0 100px #1f08b1; /* Effet néon pour le titre */
+}
+
+nav {
+    background-color: #1f1f1f; /* Fond sombre */
+    border-radius: 20px;
+    margin-top: 10px;
+    padding: 10px 0;
+    text-align: center;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    margin-right: 20px;
+}
+
+a {
+    color: #55b9f3; /* Texte bleu vif */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #fff; /* Texte blanc au survol */
+}
+
+.container {
+    background-color: #1f1f1f; /* Fond sombre */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Ombre plus prononcée */
+}
+
+footer {
+    background-color: #1f1f1f; /* Fond sombre */
+    color: #55b9f3; /* Texte bleu vif */
+    text-align: center;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.3); /* Ombre au-dessus du footer */
+}
