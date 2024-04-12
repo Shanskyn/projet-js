@@ -12,7 +12,7 @@ document.getElementById('menu1').addEventListener('mouseover', function() {
 });
 
 document.getElementById('menu1').addEventListener('click', function() {
-    window.location.href = 'http://projet/?page=accueil';
+    window.location.href = '?page=accueil';
 });
 
 document.getElementById('menu2').addEventListener('mouseover', function() {
@@ -22,7 +22,7 @@ document.getElementById('menu2').addEventListener('mouseover', function() {
 });
 
 document.getElementById('menu2').addEventListener('click', function() {
-    window.location.href = 'http://projet/?page=consultation';
+    window.location.href = '?page=consultation';
 });
 
 document.getElementById('menu3').addEventListener('mouseover', function() {
@@ -32,7 +32,7 @@ document.getElementById('menu3').addEventListener('mouseover', function() {
 });
 
 document.getElementById('menu3').addEventListener('click', function() {
-    window.location.href = 'http://projet/?page=';
+    window.location.href = '?page=';
 });
 
 
