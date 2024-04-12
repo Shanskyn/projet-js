@@ -40,7 +40,7 @@
         <td><?php echo $tab['summary']; ?></td>
         <td>
                 <!-- Bouton de suppression pour chaque livre -->
-                <form action="index.php?action=submitForm" method="post">
+                <form action="../index.php?action=submitForm" method="post">
                     <!-- Champs cachés pour l'identifiant du livre à supprimer -->
                     <input type="hidden" name="action" value="delete">
                     <input type="hidden" name="delete_id" value="<?php echo $tab['id']; ?>">
