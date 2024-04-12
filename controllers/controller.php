@@ -21,6 +21,14 @@ function DisplayAccueil() {
     }
 }
 
+function DisplaySnake() {
+    try {
+        require("views/snake.html");
+    } catch (Exception $e) {
+        throw new Exception("Une erreur est survenue lors de l'affichage de l'accueil.");
+    }
+}
+
 /**
  * Affiche la page consultation.
  * La fonction requiert l'utilisation de la base de données.

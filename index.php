@@ -30,7 +30,11 @@ if(isset($_GET["page"]) && !empty($_GET["page"])){
         DisplayAjouter();
     }else if($page == "404"){
         Display404();
-    }else {
+    }
+    else if($page == "snake"){
+        DisplaySnake();
+    }
+    else {
         Display404();
     }
 
