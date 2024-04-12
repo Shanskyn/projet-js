@@ -12,11 +12,11 @@
     <a href="http://projet/?page=accueil">
         <img src="../assets/img/logo.png" alt="TimeWarp">
     </a>
-    <label class="switch">
+  <h1 class="titre">Profitez du passé avec la modernité du futur</h1>
+  <label class="switch">
     <input type="checkbox" id="logSwitch">
     <span class="slider"></span>
   </label>
-  <h1 class="titre">Profitez du passé avec la modernité du futur</h1>
 </header>
 
 <!-- Code to handle the camera angle -->

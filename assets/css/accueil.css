@@ -10,46 +10,46 @@
    YP   YP  `Y88P'  YP  YP  YP Y88888P  */
 
 body {
-    font-family: 'Roboto', sans-serif; /* Polices futuristes */
+    font-family: 'Roboto', sans-serif; 
     margin: 0;
     padding: 0;
-    background-color: #000; /* Fond sombre */
-    color: #fff; /* Texte blanc */
+    background-color: #000; 
+    color: #fff; 
 }
 
 header {
-    background-color: #1f1f1f; /* Fond header sombre */
+    background-color: #1f1f1f; 
     padding: 20px;
     text-align: center;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Ombre sous le header */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
     display: flex;
     align-items: center;
-    justify-content: center; /* Centre les éléments horizontalement */
+    justify-content: center; 
 }
 
-/* Style pour l'image de logo */
+
 header img {
-    width: 100px; /* Taille de votre logo */
-    height: 50px; /* Taille de votre logo */
-    margin-right: 20px; /* Marge à droite de l'image */
-    align-self: flex-start; /* Aligner l'image sur le bord supérieur */
+    width: 100px; 
+    height: 50px; 
+    margin-right: 20px; 
+    align-self: flex-start; 
 }
 
 .titre {
     font-family: Teko, Helvetica, Arial, sans-serif;
     margin: 0;
     font-size: 36px;
-    color: #fff; /* Texte blanc */
+    color: #fff; 
     text-shadow: 0 0 10px #55b9f3, 0 0 20px #55b9f3, 0 0 30px #55b9f3, 0 0 40px #1f08b1, 0 0 70px #1f08b1, 0 0 80px #1f08b1, 0 0 100px #1f08b1; /* Effet néon pour le titre */
 }
 
 nav {
-    background-color: #1f1f1f; /* Fond sombre */
-    border-radius: 2vmin; /* 2% de la hauteur de la fenêtre pour les coins arrondis */
-    margin-top: 1vmin; /* 1% de la hauteur de la fenêtre pour la marge supérieure */
-    padding: 1vmin 0; /* 1% de la hauteur de la fenêtre pour le padding haut et bas */
+    background-color: #1f1f1f; 
+    border-radius: 2vmin; 
+    margin-top: 1vmin; 
+    padding: 1vmin 0; 
     text-align: center;
 }
 
@@ -61,42 +61,42 @@ ul {
 
 li {
     display: inline;
-    margin-right: 2vmin; /* 2% de la hauteur de la fenêtre pour la marge droite */
+    margin-right: 2vmin; 
 }
 
 a {
-    color: #55b9f3; /* Texte bleu vif */
+    color: #55b9f3; 
     text-decoration: none;
     font-weight: bold;
     transition: color 0.3s ease;
 }
 
 a:hover {
-    color: #fff; /* Texte blanc au survol */
+    color: #fff; 
 }
 
 .container {
-    background-color: #1f1f1f; /* Fond sombre */
-    padding: 2vmin; /* 2% de la hauteur de la fenêtre pour le padding */
-    margin: 2vmin; /* 2% de la hauteur de la fenêtre pour la marge */
-    border-radius: 2vmin; /* 2% de la hauteur de la fenêtre pour les coins arrondis */
-    box-shadow: 0 0 4vmin rgba(0, 0, 0, 0.5); /* 4% de la hauteur de la fenêtre pour l'ombre */
+    background-color: #1f1f1f; 
+    padding: 2vmin; 
+    margin: 2vmin; 
+    border-radius: 2vmin; 
+    box-shadow: 0 0 4vmin rgba(0, 0, 0, 0.5); 
 }
 
 footer {
     font-family: Teko, Helvetica, Arial, sans-serif;
     background-color: transparent;
     text-align: center;
-    border-top-left-radius: 2vmin; /* 2% de la hauteur de la fenêtre pour les coins arrondis */
-    border-top-right-radius: 2vmin; /* 2% de la hauteur de la fenêtre pour les coins arrondis */
-    padding: 1vmin; /* 1% de la hauteur de la fenêtre pour le padding */
+    border-top-left-radius: 2vmin;
+    border-top-right-radius: 2vmin;
+    padding: 1vmin;
     position: fixed;
     bottom: 0;
-    height: 6vmin; /* 6% de la hauteur de la fenêtre pour la hauteur du footer */
+    height: 6vmin;
     width: 100%;
-    box-shadow: 0 -1vmin 2vmin rgba(0, 140, 255, 0.3); /* 1% de la hauteur de la fenêtre pour l'ombre */
-    font-size: 3vmin; /* 3% de la hauteur de la fenêtre pour la taille de police */
-    color: #fff; /* Texte blanc */
+    box-shadow: 0 -1vmin 2vmin rgba(0, 140, 255, 0.3);
+    font-size: 3vmin;
+    color: #fff;
     text-shadow: 0 0 2vmin #55b9f3, 0 0 4vmin #55b9f3, 0 0 6vmin #55b9f3, 0 0 8vmin #1f08b1, 0 0 14vmin #1f08b1, 0 0 16vmin #1f08b1, 0 0 20vmin #1f08b1;
 }
 
@@ -221,7 +221,7 @@ footer {
     width: 80vmin;
     height: 34vmin;
     top: 50%;
-    left: 50%;
+    left: 65%;
     transform: translate(-50%, -50%) var(--rotate);
     transform-style: preserve-3d;
     transition: transform 1s;
