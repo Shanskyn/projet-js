@@ -16,7 +16,7 @@
  */
 function DbConnexion(){
     try{
-        $db = new PDO('mysql:host=localhost;port=3306;dbname=tp_js;charset=utf8', 'root', 'root');
+        $db = new PDO('mysql:host=localhost;port=3306;dbname=db_jeux;charset=utf8', 'root', 'root');
         return $db;
     }
     catch(PDOException $e) {
