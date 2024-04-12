@@ -12,7 +12,9 @@
     <h1>Consultations des jeux</h1>
 </header>
 
-<?php require("menu.html")?>
+<?php
+require("menu.html")
+?>
 
 <div class="container">
     <h2>Liste des jeux</br></h2>
@@ -39,21 +41,18 @@
         <td><?php echo $tab['author']; ?></td>
         <td><?php echo $tab['summary']; ?></td>
         <td>
-                <!-- Bouton de suppression pour chaque livre -->
                 <form action="../index.php?action=submitForm" method="post">
-                    <!-- Champs cachés pour l'identifiant du livre à supprimer -->
                     <input type="hidden" name="action" value="delete">
                     <input type="hidden" name="delete_id" value="<?php echo $tab['id']; ?>">
                     <button type="submit">Supprimer</button>
                 </form>
-                 <!-- Bouton "Modifier" qui ouvre une pop-up -->
                  <a class="open-modal" href="./?page=modification&id=<?php echo $tab['id']; ?>">Modifier</a>
             </td>
     </tr>
     <?php endforeach; ?>
 </table>
-
-<?php require("footer.html")?>
-
 </body>
+<?php
+require("footer.html")
+?>
 </html>
