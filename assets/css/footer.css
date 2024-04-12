@@ -1,0 +1,10 @@
+footer {
+    background-color: #1f1f1f; /* Fond sombre */
+    color: #55b9f3; /* Texte bleu vif */
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.3); /* Ombre au-dessus du footer */
+}

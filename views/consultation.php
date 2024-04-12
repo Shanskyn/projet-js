@@ -12,12 +12,7 @@
     <h1>Consultations des jeux</h1>
 </header>
 
-<nav>
-    <ul>
-        <li><a href="?page=accueil">Accueil</a></li>
-        <li><a href="?page=ajout">Ajouter</a></li>
-    </ul>
-</nav>
+<?php require("menu.html")?>
 
 <div class="container">
     <h2>Liste des jeux</br></h2>
@@ -58,9 +53,7 @@
     <?php endforeach; ?>
 </table>
 
-<footer>
-    <p>&copy; 2024 GamIN my hand. Tous droits réservés.</p>
-</footer>
+<?php require("footer.html")?>
 
 </body>
 </html>
