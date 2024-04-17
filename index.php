@@ -9,12 +9,14 @@
  * @date 03/19/2024
  */
 
-require("controllers/controller.php");
+require __DIR__ . '/vendor/autoload.php';
+use App\Controllers\controller;
+$controller = new controller();
 
 $page = $_SERVER['REQUEST_URI'] ?? '/';
 $serverMethod = $_SERVER["REQUEST_METHOD"];
 
-/*if ($serverMethod === "DELETE"){
+/*if ($serverMethod === "DELETE"){Z
     header("Content-Type: application/json");
     echo json_encode([
         "key" => "value"
@@ -24,37 +26,42 @@ $serverMethod = $_SERVER["REQUEST_METHOD"];
 
 if ($page === "/")
     try {
-        DisplayAccueil();
+        $controller->DisplayAccueil();
     } catch (Exception $e) {
     }
 else if ($page === "/api/games")
     try {
-        GameListAPI();
+        $controller->GameListAPI();
     } catch (Exception $e) {
     }
 else if ($page === "/consultation")
     try {
-        DisplayConsultation();
+        $controller->DisplayConsultation();
+    } catch (Exception $e) {
+    }
+else if ($page === "/accueil")
+    try {
+        $controller->DisplayAccueil();
     } catch (Exception $e) {
     }
 else if ($page === "/test")
     try {
-        DisplayTest();
+        $controller->DisplayTest();
     } catch (Exception $e) {
     }
 else if ($page === "/snake")
     try {
-        DisplaySnake();
+        $controller->DisplaySnake();
     } catch (Exception $e) {
     }
 else if ($page === "/404")
     try {
-        Display404();
+        $controller->Display404();
     } catch (Exception $e) {
     }
 else
     try {
-        Display404();
+        $controller->Display404();
     } catch (Exception $e) {
     }
 

@@ -8,6 +8,8 @@
  * @date 03/19/2024
  */
 
+require __DIR__ . '/../vendor/autoload.php';
+
 /**
  * Fonction de connexion avec la base de données.
  * Nécessaire pour agir avec la base via d'autres fonctions.
