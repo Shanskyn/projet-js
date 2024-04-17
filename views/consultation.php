@@ -16,41 +16,32 @@
 require("menu.html")
 ?>
 
-<div class="container">
-    <h2>Liste des jeux</br></h2>
-    <div class="recherche">
-        <form>
-            <label for="rechercher">Rechercher :
-            <input type="text" name="rechercher"></label>
-        </form>
-    </div>
+<div id="container">
+    <h1>Liste des Jeux</h1>
+    <input type="text" id="inputRecherche" placeholder="Rechercher...">
+    <button id="boutonRechercher">Rechercher</button>
+    <label for="selectFiltre">Filtre :
+        <select id="selectFiltre">
+            <option value="Nom">Nom</option>
+            <option value="Editeur">Editeur</option>
+            <option value="Studio">Studio</option>
+        </select>
+    </label>
+    <table id="jeux-liste">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Studio</th>
+            <th>Support</th>
+            <th>Année</th>
+        </tr>
+        </thead>
+        <tbody>
 
-
-    <table border="1">
-    <tr>
-        <th>Année</th>
-        <th>Titre</th>
-        <th>Studio</th>
-        <th>Résumé</th>
-        <th>Options</th>
-    </tr>
-    <?php foreach ($data as $tab): ?>
-    <tr>
-        <td><?php echo $tab['year']; ?></td>
-        <td><?php echo $tab['name']; ?></td>
-        <td><?php echo $tab['author']; ?></td>
-        <td><?php echo $tab['summary']; ?></td>
-        <td>
-                <form action="../index.php?action=submitForm" method="post">
-                    <input type="hidden" name="action" value="delete">
-                    <input type="hidden" name="delete_id" value="<?php echo $tab['id']; ?>">
-                    <button type="submit">Supprimer</button>
-                </form>
-                 <a class="open-modal" href="./?page=modification&id=<?php echo $tab['id']; ?>">Modifier</a>
-            </td>
-    </tr>
-    <?php endforeach; ?>
-</table>
+        </tbody>
+    </table>
+    <script src="../assets/js/consultation.js"></script>
+</div>
 </body>
 <?php
 require("footer.html")
