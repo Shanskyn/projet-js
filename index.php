@@ -9,8 +9,29 @@
  * @date 03/19/2024
  */
 
-
 require("controllers/controller.php");
+
+$page = isset($_SERVER['REQUEST_URI']) ? $_SERVER['REQUEST_URI'] : '/';
+$serverMethod = $_SERVER["REQUEST_METHOD"];
+
+if ($serverMethod === "DELETE"){
+    header("Content-Type: application/json");
+    echo json_encode([
+        "key" => "value"
+    ]);
+    die();
+}
+
+if ($page === "/")
+    DisplayAccueil();
+else if ($page === "/api/games")
+    GameListAPI();
+else if ($page === "/consultation")
+    DisplayConsultation();
+else if ($page === "/test")
+    DisplayTest();
+
+die();
 /**
  * Ces conditions analysent les variables en GET, c'est via "menu.html" que c'est essentiellement utilisé
  * Si elle existe et qu'elle n'est pas vide, elle redirige vers une fonction de "controller.php" selon sa valeur
@@ -30,6 +51,8 @@ if(isset($_GET["page"]) && !empty($_GET["page"])){
         DisplayAjouter();
     }else if($page == "404"){
         Display404();
+    }else if ($page == "api/games") {
+        GameListAPI();
     }
     else if($page == "snake"){
         DisplaySnake();
