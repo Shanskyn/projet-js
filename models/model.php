@@ -19,8 +19,7 @@ require __DIR__ . '/../vendor/autoload.php';
 function DbConnexion(): PDO
 {
     try{
-        $db = new PDO('mysql:host=localhost;port=3306;dbname=db_jeux;charset=utf8', 'root', 'root');
-        return $db;
+        return new PDO('mysql:host=localhost;port=3306;dbname=db_jeux;charset=utf8', 'root', 'root');
     }
     catch(PDOException|Exception $e) {
         throw new Exception("Une erreur est survenue lors de la connexion à la base de données.");
@@ -37,13 +36,13 @@ function DbAfficher(): false|string
 {
     try {
         $db = DbConnexion();
-        $sql = "SELECT * FROM games";
+        $sql = "SELECT * FROM jeux";
         $statement = $db->prepare($sql);
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         return json_encode($result);
     } catch (PDOException|Exception $e) {
-        throw new Exception("Une erreur est survenue lors de l'affichage des livres.");
+        throw new Exception("Une erreur est survenue lors du renvoi des jeux en .json.");
     }
 }
 
