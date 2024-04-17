@@ -1,0 +1,12 @@
+{
+    "autoload": {
+        "psr-4": {
+            "App\\Controllers\\": "controllers/",
+            "App\\Models\\": "models/",
+            "App\\Views\\": "views/"
+        }
+    },
+    "require": {
+        "ext-pdo": "*"
+    }
+}

@@ -14,17 +14,15 @@
  * @return PDO Renvoie les paramètres de connexion à la base de données.
  * @throws Exception Si il y a une erreur lors de la connexion à la base de données.
  */
-function DbConnexion(){
+function DbConnexion(): PDO
+{
     try{
         $db = new PDO('mysql:host=localhost;port=3306;dbname=db_jeux;charset=utf8', 'root', 'root');
         return $db;
     }
-    catch(PDOException $e) {
+    catch(PDOException|Exception $e) {
         throw new Exception("Une erreur est survenue lors de la connexion à la base de données.");
 }
-    catch(Exception $e){
-        throw new Exception("Une erreur est survenue lors de la connexion à la base de données.");
-    }
 }
 
 /**
@@ -33,7 +31,8 @@ function DbConnexion(){
  * @return false|string Renvoie un tableau de tableau contenant tous les tuples de la base de données.
  * @throws Exception Si une erreur survient lors de l'affichage des livres.
  */
-function DbAfficher() {
+function DbAfficher(): false|string
+{
     try {
         $db = DbConnexion();
         $sql = "SELECT * FROM games";
@@ -41,7 +40,7 @@ function DbAfficher() {
         $statement->execute();
         $result = $statement->fetchAll(PDO::FETCH_ASSOC);
         return json_encode($result);
-    } catch (PDOException $e) {
+    } catch (PDOException|Exception $e) {
         throw new Exception("Une erreur est survenue lors de l'affichage des livres.");
     }
 }
