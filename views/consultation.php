@@ -9,7 +9,14 @@
 <body>
 
 <header>
-    <h1>Consultations des jeux</h1>
+    <a href="http://projet/?page=accueil">
+        <img src="../assets/img/logo.png" alt="TimeWarp">
+    </a>
+  <h1 class="titre">Profitez du passé avec la modernité du futur</h1>
+  <label class="switch">
+    <input type="checkbox" id="logSwitch">
+    <span class="slider"></span>
+  </label>
 </header>
 
 <nav>
@@ -59,7 +66,7 @@
 </table>
 
 <footer>
-    <p>&copy; 2024 GamIN my hand. Tous droits réservés.</p>
+    <p>&copy; 2024 TimeWarp. Tous droits réservés.</p>
 </footer>
 
 </body>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Site Vitrine</title>
+    <title>TimeWarp</title>
     <link rel="stylesheet" href="../assets/css/accueil.css">
 </head>
 <body>
@@ -87,10 +87,10 @@
 
 <div class="simulateur">
   <div class="boite-dialogue">
-    <div class="nav-bar">
-      <button id="menu1">Page Produit</button>
-      <button id="menu2">Catalogues</button>
-      <button id="menu3">Menu 3</button>
+    <div id="menu-navigation" class="nav-bar">
+      <button class="selecteur-menu" id="menu1">Page Produit</button>
+      <button class="selecteur-menu" id="menu2">Catalogues</button>
+      <button class="selecteur-menu" id="menu3">Menu 3</button>
     </div>
     <div class="contenu">
       Sélectionnez un menu.
@@ -99,7 +99,7 @@
 </div>
 
 <div id="logBox">
-  <!-- Cette div sera utilisée pour afficher les logs -->
+  <!-- div pour afficher les logs -->
 </div>
 
 <script src="../assets/js/Home.js"></script>

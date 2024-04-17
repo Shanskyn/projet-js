@@ -5,38 +5,93 @@
 // 88  V888 88   88  `8bd8'       db   8D `8b  d8' 88b  d88 88 `88.   .88.   db   8D 
 // VP   V8P YP   YP    YP         `8888Y'  `Y88P'  ~Y8888P' 88   YD Y888888P `8888Y' 
 
+const displayMenu1 = function() {
+  var contenuDiv = document.querySelector('.contenu');
+  contenuDiv.textContent = 'Cette page présente notre console retro nouvelle génération, La REVIVE.';
+  console.log("Menu 1 affiché");
+}
+
+const displayMenu2 = function() {
+  var contenuDiv = document.querySelector('.contenu');
+  contenuDiv.textContent = 'Retrouvez ici le large catalogue des consoles et jeux retros disponibles sur la REVIVE.';
+  console.log("Menu 2 affiché");
+}
+
+const displayMenu3 = function() {
+  var contenuDiv = document.querySelector('.contenu');
+  contenuDiv.textContent = 'SOON ...';
+  console.log("Menu 3 affiché")
+}
+
 document.getElementById('menu1').addEventListener('mouseover', function() {
-    var contenuDiv = document.querySelector('.contenu');
-    contenuDiv.textContent = 'Contenu du menu 1';
-    console.log("Menu 1 affiché");
+  displayMenu1()
 });
 
 document.getElementById('menu1').addEventListener('click', function() {
-    window.location.href = 'http://projet/?page=accueil';
+    window.location.href = '?page=accueil';
 });
 
 document.getElementById('menu2').addEventListener('mouseover', function() {
-    var contenuDiv = document.querySelector('.contenu');
-    contenuDiv.textContent = 'Contenu du menu 2';
-    console.log("Menu 2 affiché");
+      displayMenu2()
 });
 
 document.getElementById('menu2').addEventListener('click', function() {
-    window.location.href = 'http://projet/?page=consultation';
+    window.location.href = '?page=consultation';
 });
 
 document.getElementById('menu3').addEventListener('mouseover', function() {
-    var contenuDiv = document.querySelector('.contenu');
-    contenuDiv.textContent = 'Contenu du menu 3';
-    console.log("Menu 3 affiché");
+    displayMenu3()
 });
 
 document.getElementById('menu3').addEventListener('click', function() {
-    window.location.href = 'http://projet/?page=';
+    window.location.href = '?page=';
 });
 
 
+// d8b   db  .d8b.  db    db      d8888b.  .d88b.  db    db d888888b  .d88b.  d8b   db .d8888. 
+// 888o  88 d8' `8b 88    88      88  `8D .8P  Y8. 88    88 `~~88~~' .8P  Y8. 888o  88 88'  YP 
+// 88V8o 88 88ooo88 Y8    8P      88oooY' 88    88 88    88    88    88    88 88V8o 88 `8bo.   
+// 88 V8o88 88~~~88 `8b  d8'      88~~~b. 88    88 88    88    88    88    88 88 V8o88   `Y8b. 
+// 88  V888 88   88  `8bd8'       88   8D `8b  d8' 88b  d88    88    `8b  d8' 88  V888 db   8D 
+// VP   V8P YP   YP    YP         Y8888P'  `Y88P'  ~Y8888P'    YP     `Y88P'  VP   V8P `8888Y' 
 
+
+let clickableMenus = document.querySelectorAll('#menu-navigation>button.selecteur-menu')
+
+let menuIndex = -1
+let menuCount = clickableMenus.length
+
+let menuCallbacks = {
+  0: displayMenu1,
+  1: displayMenu2,
+  2: displayMenu3,
+}
+
+function nextMenuItem() {
+  menuIndex = (menuIndex + 1) % menuCount;
+  if (menuIndex in menuCallbacks) {
+    menuCallbacks[menuIndex]();
+  }
+
+  clickableMenus.forEach(menu => menu.classList.remove("selected"));
+  let menu = clickableMenus[menuIndex];
+  menu.classList.add("selected");
+}
+
+document.getElementById('right').addEventListener("click", nextMenuItem);
+
+function previousMenuItem() {
+  menuIndex = (menuIndex - 1 + menuCount) % menuCount;
+  if (menuIndex in menuCallbacks) {
+    menuCallbacks[menuIndex]();
+  }
+ 
+  clickableMenus.forEach(menu => menu.classList.remove("selected"));
+  let menu = clickableMenus[menuIndex];
+  menu.classList.add("selected");
+}
+
+document.getElementById('left').addEventListener("click", previousMenuItem);
 
 // db   dD  .d88b.  d8b   db  .d8b.  .88b  d88. d888888b 
 // 88 ,8P' .8P  Y8. 888o  88 d8' `8b 88'YbdP`88   `88'   
@@ -53,7 +108,7 @@ document.getElementById('menu3').addEventListener('click', function() {
     // Fonction pour vérifier si la séquence correspond au code secret
     function checkSecretCode(sequence) {
         if (sequence === secretCode) {
-            window.location.href = "http://projet/?page=snake";
+            window.location.href = "?page=snake";
         }
     }
 
@@ -94,7 +149,7 @@ function addLog(message) {
   logBox.insertBefore(logMessage, logBox.firstChild);
 
   // Limiter le nombre de lignes dans la boîte de logs
-  var maxLines = 6; // Nombre maximum de lignes à afficher
+  var maxLines = 3; // Nombre maximum de lignes à afficher
   var logLines = logBox.querySelectorAll('p');
   if (logLines.length > maxLines) {
     logBox.removeChild(logLines[maxLines]);
@@ -116,15 +171,21 @@ console.log = function(message) {
 // Sélectionnez l'interrupteur et la boîte de logs
 var logSwitch = document.getElementById('logSwitch');
 var logBox = document.getElementById('logBox');
+var snes = document.getElementById('snes-gamepad');
+var cam = document.getElementById('camera');
 
 // Ajoutez un événement "change" à l'interrupteur
 logSwitch.addEventListener('change', function() {
   // Si l'interrupteur est coché, affichez la boîte de logs, sinon cachez-la
   if (logSwitch.checked) {
     logBox.style.display = 'block'; // Affiche la boîte de logs
-    console.log("Nerd Box affichée");
+    snes.style.display = 'block';
+    camera.style.display = 'block';
+    console.log("Nerd mode activé");
   } else {
     logBox.style.display = 'none'; // Cache la boîte de logs
-    console.log("Nerd Box cachée");
+    snes.style.display = 'none';
+    camera.style.display = 'none';
+    console.log("Nerd mode désactivé");
   }
 });

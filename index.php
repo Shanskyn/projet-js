@@ -26,7 +26,7 @@ if(isset($_GET["page"]) && !empty($_GET["page"])){
         DisplayModification();
     }else if($page == "phpinfo") {
         DisplayInfoPHP();
-    }else if($page == "ajouter"){
+    }else if($page == "ajout"){
         DisplayAjouter();
     }else if($page == "404"){
         Display404();

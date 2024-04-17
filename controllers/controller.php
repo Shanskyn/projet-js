@@ -74,7 +74,7 @@ function DisplayInfoPHP() {
  * Affiche la page d'ajout de livre.
  */
 function DisplayAjouter(){
-    require("views/ajouter.php");
+    require("views/ajout.php");
 }
 
 /**
