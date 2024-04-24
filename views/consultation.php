@@ -34,10 +34,9 @@ require("menu.html")
             <th id="studio">Studio</th>
             <th id="editeur">Editeur</th>
             <th id="annee">Année</th>
-            <th id="sommaire">Année</th>
-            <th id="support">Support</th>
-            <th id="mode">Mode</th>
+            <th id="sommaire">Sommaire</th>
             <th id="genre">Genre</th>
+            <th id="support">Support</th>
         </tr>
         </thead>
         <tbody>
