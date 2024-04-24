@@ -1,10 +1,27 @@
 footer {
-    background-color: #1f1f1f; /* Fond sombre */
-    color: #55b9f3; /* Texte bleu vif */
+    font-family: Teko, Helvetica, Arial, sans-serif;
+    background-color: transparent;
     text-align: center;
-    padding: 10px;
-    position: relative;
+    border-top-left-radius: 2vmin;
+    border-top-right-radius: 2vmin;
+    padding: 0;
     bottom: 0;
+    height: 6vmin;
     width: 100%;
-    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.3); /* Ombre au-dessus du footer */
-}
+    box-shadow: 0 -1vmin 2vmin rgba(0, 140, 255, 0.3);
+    font-size: 3vmin;
+    color: #fff;
+    text-shadow: 0 0 2vmin #55b9f3, 0 0 4vmin #55b9f3, 0 0 6vmin #55b9f3, 0 0 8vmin #1f08b1, 0 0 14vmin #1f08b1, 0 0 16vmin #1f08b1, 0 0 20vmin #1f08b1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media (max-width: 1000px) {
+    .titre {
+        font-size: 1.5rem;
+    }
+    footer {
+      font-size: 1.5rem;
+    }
+  }

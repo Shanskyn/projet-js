@@ -5,10 +5,26 @@
 // 88  V888 88   88  `8bd8'       db   8D `8b  d8' 88b  d88 88 `88.   .88.   db   8D 
 // VP   V8P YP   YP    YP         `8888Y'  `Y88P'  ~Y8888P' 88   YD Y888888P `8888Y' 
 
+const displayMenu1 = function() {
+  var contenuDiv = document.querySelector('.contenu');
+  contenuDiv.textContent = 'Cette page présente notre console retro nouvelle génération, La REVIVE.';
+  console.log("Menu 1 affiché");
+}
+
+const displayMenu2 = function() {
+  var contenuDiv = document.querySelector('.contenu');
+  contenuDiv.textContent = 'Retrouvez ici le large catalogue des consoles et jeux retros disponibles sur la REVIVE.';
+  console.log("Menu 2 affiché");
+}
+
+const displayMenu3 = function() {
+  var contenuDiv = document.querySelector('.contenu');
+  contenuDiv.textContent = 'SOON ...';
+  console.log("Menu 3 affiché")
+}
+
 document.getElementById('menu1').addEventListener('mouseover', function() {
-    var contenuDiv = document.querySelector('.contenu');
-    contenuDiv.textContent = 'Contenu du menu 1';
-    console.log("Menu 1 affiché");
+  displayMenu1()
 });
 
 document.getElementById('menu1').addEventListener('click', function() {
@@ -16,9 +32,7 @@ document.getElementById('menu1').addEventListener('click', function() {
 });
 
 document.getElementById('menu2').addEventListener('mouseover', function() {
-    var contenuDiv = document.querySelector('.contenu');
-    contenuDiv.textContent = 'Contenu du menu 2';
-    console.log("Menu 2 affiché");
+      displayMenu2()
 });
 
 document.getElementById('menu2').addEventListener('click', function() {
@@ -26,17 +40,66 @@ document.getElementById('menu2').addEventListener('click', function() {
 });
 
 document.getElementById('menu3').addEventListener('mouseover', function() {
-    var contenuDiv = document.querySelector('.contenu');
-    contenuDiv.textContent = 'Contenu du menu 3';
-    console.log("Menu 3 affiché");
+    displayMenu3()
 });
 
 document.getElementById('menu3').addEventListener('click', function() {
     window.location.href = '/';
-});
+}); 
 
 
+// d8b   db  .d8b.  db    db      d8888b.  .d88b.  db    db d888888b  .d88b.  d8b   db .d8888. 
+// 888o  88 d8' `8b 88    88      88  `8D .8P  Y8. 88    88 `~~88~~' .8P  Y8. 888o  88 88'  YP 
+// 88V8o 88 88ooo88 Y8    8P      88oooY' 88    88 88    88    88    88    88 88V8o 88 `8bo.   
+// 88 V8o88 88~~~88 `8b  d8'      88~~~b. 88    88 88    88    88    88    88 88 V8o88   `Y8b. 
+// 88  V888 88   88  `8bd8'       88   8D `8b  d8' 88b  d88    88    `8b  d8' 88  V888 db   8D 
+// VP   V8P YP   YP    YP         Y8888P'  `Y88P'  ~Y8888P'    YP     `Y88P'  VP   V8P `8888Y' 
 
+
+let clickableMenus = document.querySelectorAll('#menu-navigation>button.selecteur-menu')
+
+let menuIndex = -1
+let menuCount = clickableMenus.length
+
+let menuCallbacks = {
+  0: displayMenu1,
+  1: displayMenu2,
+  2: displayMenu3,
+}
+
+function nextMenuItem() {
+  menuIndex = (menuIndex + 1) % menuCount;
+  if (menuIndex in menuCallbacks) {
+    menuCallbacks[menuIndex]();
+  }
+
+  clickableMenus.forEach(menu => menu.classList.remove("selected"));
+  let menu = clickableMenus[menuIndex];
+  menu.classList.add("selected");
+}
+
+document.getElementById('right').addEventListener("click", nextMenuItem);
+
+function previousMenuItem() {
+  menuIndex = (menuIndex - 1 + menuCount) % menuCount;
+  if (menuIndex in menuCallbacks) {
+    menuCallbacks[menuIndex]();
+  }
+ 
+  clickableMenus.forEach(menu => menu.classList.remove("selected"));
+  let menu = clickableMenus[menuIndex];
+  menu.classList.add("selected");
+}
+
+document.getElementById('left').addEventListener("click", previousMenuItem);
+
+document.getElementById('select').addEventListener("click", clickSelectedMenu);
+
+function clickSelectedMenu() {
+  if (menuIndex >= 0 && menuIndex < menuCount) {
+    clickableMenus[menuIndex].click();
+  }
+} 
 
 // db   dD  .d88b.  d8b   db  .d8b.  .88b  d88. d888888b 
 // 88 ,8P' .8P  Y8. 888o  88 d8' `8b 88'YbdP`88   `88'   
@@ -45,32 +108,30 @@ document.getElementById('menu3').addEventListener('click', function() {
 // 88 `88. `8b  d8' 88  V888 88   88 88  88  88   .88.   
 // YP   YD  `Y88P'  VP   V8P YP   YP YP  YP  YP Y888888P
 
-  let sequence = ""; // Variable pour stocker la séquence de boutons
-    let lastPressTime = 0; // Variable pour stocker le temps du dernier appui sur un bouton
-    const secretCode = "upupdowndownleftrightleftrightba"; // Code secret à vérifier
+  let sequence = "";
+    let lastPressTime = 0;
+    const secretCode = "upupdowndownleftrightleftrightba";
 
-   
-    // Fonction pour vérifier si la séquence correspond au code secret
+  
     function checkSecretCode(sequence) {
         if (sequence === secretCode) {
-            window.location.href = "http://projet/?page=snake";
+            window.location.href = "snake";
         }
     }
 
-    // Ajout d'écouteurs d'événements à chaque bouton de la manette
     const buttons = document.querySelectorAll('#snes-gamepad button');
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             const currentTime = new Date().getTime();
-            if (currentTime - lastPressTime <= 1000) { // Vérifier si le dernier appui était dans le délai d'une seconde
-                sequence += button.id; // Ajouter l'identifiant du bouton à la séquence
+            if (currentTime - lastPressTime <= 1000) {
+                sequence += button.id;
                 console.log("Suite de boutons :", sequence);
-                checkSecretCode(sequence); // Vérifier si la séquence correspond au code secret
+                checkSecretCode(sequence);
             }else {
-                sequence = button.id; // Réinitialiser la séquence si le dernier appui était après une seconde
+                sequence = button.id;
                 console.log("Nouvelle suite de boutons :", sequence);
             }
-            lastPressTime = currentTime; // Mettre à jour le temps du dernier appui
+            lastPressTime = currentTime;
         });
     });
 
@@ -82,26 +143,24 @@ document.getElementById('menu3').addEventListener('click', function() {
 // 88  V888 88.     88 `88. 88  .8D      88   8D `8b  d8' .8P  Y8. 
 // VP   V8P Y88888P 88   YD Y8888D'      Y8888P'  `Y88P'  YP    YP     
 
-// Sélectionnez la boîte de logs
+
 var logBox = document.getElementById('logBox');
 
-// Fonction pour ajouter un message de log dans la boîte
 function addLog(message) {
   var logMessage = document.createElement('p');
   logMessage.textContent = message;
 
-  // Ajouter la nouvelle ligne au début de la boîte de logs
+
   logBox.insertBefore(logMessage, logBox.firstChild);
 
-  // Limiter le nombre de lignes dans la boîte de logs
-  var maxLines = 6; // Nombre maximum de lignes à afficher
+
+  var maxLines = 3;
   var logLines = logBox.querySelectorAll('p');
   if (logLines.length > maxLines) {
     logBox.removeChild(logLines[maxLines]);
   }
 }
 
-// Redirection des logs console vers la boîte de logs
 console.log = function(message) {
   addLog('[LOG] ' + message);
 }
@@ -113,18 +172,69 @@ console.log = function(message) {
 // 88  V888 88.     88 `88. 88  .8D      88  88  88 `8b  d8' 88  .8D 88.     
 // VP   V8P Y88888P 88   YD Y8888D'      YP  YP  YP  `Y88P'  Y8888D' Y88888P
 
-// Sélectionnez l'interrupteur et la boîte de logs
+
 var logSwitch = document.getElementById('logSwitch');
 var logBox = document.getElementById('logBox');
+var snes = document.getElementById('snes-gamepad');
+var carousel = document.getElementById('carousel-container');
 
-// Ajoutez un événement "change" à l'interrupteur
+
 logSwitch.addEventListener('change', function() {
-  // Si l'interrupteur est coché, affichez la boîte de logs, sinon cachez-la
   if (logSwitch.checked) {
-    logBox.style.display = 'block'; // Affiche la boîte de logs
-    console.log("Nerd Box affichée");
+    logBox.style.display = 'block';
+    snes.style.display = 'block';
+    document.querySelector('.carousel').style.display = 'none';
+    console.log("Nerd mode activé");
   } else {
-    logBox.style.display = 'none'; // Cache la boîte de logs
-    console.log("Nerd Box cachée");
+    logBox.style.display = 'none';
+    snes.style.display = 'none';
+    document.querySelector('.carousel').style.display = 'block';
+    console.log("Nerd mode désactivé");
   }
 });
+
+
+//  .o88b.  .d8b.  d8888b.  .d88b.  db    db .d8888. d88888b db      
+// d8P  Y8 d8' `8b 88  `8D .8P  Y8. 88    88 88'  YP 88'     88      
+// 8P      88ooo88 88oobY' 88    88 88    88 `8bo.   88ooooo 88      
+// 8b      88~~~88 88`8b   88    88 88    88   `Y8b. 88~~~~~ 88      
+// Y8b  d8 88   88 88 `88. `8b  d8' 88b  d88 db   8D 88.     88booo. 
+//  `Y88P' YP   YP 88   YD  `Y88P'  ~Y8888P' `8888Y' Y88888P Y88888P 
+
+let slideIndex = 0;
+const slides = document.querySelectorAll('.carousel-slide img');
+const slideArea = document.querySelector('.carousel-slide');
+const totalSlides = slides.length;
+const slideInterval = 2900;
+
+document.querySelector('.prevBtn').addEventListener('click', () => {
+    changeSlide(-1);
+});
+
+document.querySelector('.nextBtn').addEventListener('click', () => {
+    changeSlide(1);
+});
+
+// Fonction pour changer la diapositive
+function changeSlide(step) {
+    slideIndex += step;
+
+    if (slideIndex >= totalSlides) {
+        slideIndex = 0;
+    } else if (slideIndex < 0) {
+        slideIndex = totalSlides - 1;
+    }
+
+    slideArea.style.transform = `translateX(-${slideIndex * 100 / 3}%)`;
+}
+
+let intervalId = setInterval(() => {
+    changeSlide(1);
+}, slideInterval);
+
+function stopAutoSlide() {
+    clearInterval(intervalId);
+}
+
+document.querySelector('.prevBtn').addEventListener('click', stopAutoSlide);
+document.querySelector('.nextBtn').addEventListener('click', stopAutoSlide);

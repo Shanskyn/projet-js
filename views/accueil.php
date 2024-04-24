@@ -3,23 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil - Site Vitrine</title>
+    <title>TimeWarp</title>
     <link rel="stylesheet" href="../assets/css/accueil.css">
 </head>
 <body>
 
 <header>
-    <a href="http://projet/?page=accueil">
+    <a href="http://projet/accueil">
         <img src="../assets/img/logo.png" alt="TimeWarp">
     </a>
-    <label class="switch">
+  <h1 class="titre">Profitez du passé avec la modernité du futur</h1>
+  <label class="switch">
     <input type="checkbox" id="logSwitch">
     <span class="slider"></span>
   </label>
-  <h1 class="titre">Profitez du passé avec la modernité du futur</h1>
 </header>
 
-<!-- Code to handle the camera angle -->
 <input tabindex="-1" type="radio" name="cam" id="cam1" />
 <input tabindex="-1" type="radio" name="cam" id="cam2" />
 <input tabindex="-1" type="radio" name="cam" id="cam3" />
@@ -44,17 +43,17 @@
 
 
 <article id="snes-gamepad" aria-label="SNES controller">
-  <!-- cord -->
+
   <div id="cord"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div> 
   
-  <!-- Buttons on top-->
+
   <button id="l" class="is3d">Top left<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></button>
   <button id="r" class="is3d">Top Right<div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></button>
   
-  <!-- frame -->
+
   <div class="face is3d"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
   
-  <!-- Letters and Text -->
+
   <h1 class="esperluette">TimeWarp</h1>
   <p>- REVIVE PROJECT -</p>
   
@@ -85,21 +84,33 @@
   </div>
 </article>
 
-<div class="simulateur">
-  <div class="boite-dialogue">
-    <div class="nav-bar">
-      <button id="menu1">Page Produit</button>
-      <button id="menu2">Catalogues</button>
-      <button id="menu3">Menu 3</button>
+<div class="content-wrapper">
+        <div class="simulateur">
+            <div class="boite-dialogue">
+              <div id="menu-navigation" class="nav-bar">
+                <button class="selecteur-menu" id="menu1">Page Produit</button>
+                <button class="selecteur-menu" id="menu2">Catalogues</button>
+                <button class="selecteur-menu" id="menu3">Menu 3</button>
+              </div>
+              <div class="contenu">
+                Sélectionnez un menu.
+              </div>
+            </div>
+        </div>
+
+        <div class="carousel-container carousel">
+          <div class="carousel-slide">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSCos0q_9WM8RL741S1GbnTkgQntT_CoaZlA2yw7y69og&s" alt="Image 1">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-0JU3mnSA8xkOShXn8SJjfh6ajf6HXo49bGQiepYyw&s" alt="Image 2">
+            <img src="https://img.freepik.com/photos-premium/retro-8-bit-super-mario-console-game-background-fond-ecran-haute-resolution-pour-fans-jeux-vintage_820074-242.jpg" alt="Image 3">
+          </div>
+          <button class="prevBtn"></button>
+          <button class="nextBtn"></button>
+        </div>
     </div>
-    <div class="contenu">
-      Sélectionnez un menu.
-    </div>
-  </div>
-</div>
 
 <div id="logBox">
-  <!-- Cette div sera utilisée pour afficher les logs -->
+  <!-- div pour afficher les logs -->
 </div>
 
 <script src="../assets/js/Home.js"></script>
