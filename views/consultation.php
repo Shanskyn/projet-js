@@ -30,10 +30,13 @@ require("menu.html")
     <table id="jeux-liste">
         <thead>
         <tr>
-            <th>Nom</th>
-            <th>Studio</th>
-            <th>Support</th>
-            <th>Année</th>
+            <th id="titre">Titre</th>
+            <th id="studio">Studio</th>
+            <th id="editeur">Editeur</th>
+            <th id="annee">Année</th>
+            <th id="sommaire">Sommaire</th>
+            <th id="genre">Genre</th>
+            <th id="support">Support</th>
         </tr>
         </thead>
         <tbody>
