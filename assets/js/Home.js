@@ -45,7 +45,7 @@ document.getElementById('menu3').addEventListener('mouseover', function() {
 
 document.getElementById('menu3').addEventListener('click', function() {
     window.location.href = '/';
-});
+}); 
 
 
 // d8b   db  .d8b.  db    db      d8888b.  .d88b.  db    db d888888b  .d88b.  d8b   db .d8888. 
@@ -92,6 +92,14 @@ function previousMenuItem() {
 }
 
 document.getElementById('left').addEventListener("click", previousMenuItem);
+
+document.getElementById('select').addEventListener("click", clickSelectedMenu);
+
+function clickSelectedMenu() {
+  if (menuIndex >= 0 && menuIndex < menuCount) {
+    clickableMenus[menuIndex].click();
+  }
+} 
 
 // db   dD  .d88b.  d8b   db  .d8b.  .88b  d88. d888888b 
 // 88 ,8P' .8P  Y8. 888o  88 d8' `8b 88'YbdP`88   `88'   
@@ -175,12 +183,12 @@ logSwitch.addEventListener('change', function() {
   if (logSwitch.checked) {
     logBox.style.display = 'block';
     snes.style.display = 'block';
-    document.querySelector('.carousel').style.display = 'none'; // Utilisation de la classe .carousel
+    document.querySelector('.carousel').style.display = 'none';
     console.log("Nerd mode activé");
   } else {
     logBox.style.display = 'none';
     snes.style.display = 'none';
-    document.querySelector('.carousel').style.display = 'block'; // Utilisation de la classe .carousel
+    document.querySelector('.carousel').style.display = 'block';
     console.log("Nerd mode désactivé");
   }
 });
@@ -197,6 +205,7 @@ let slideIndex = 0;
 const slides = document.querySelectorAll('.carousel-slide img');
 const slideArea = document.querySelector('.carousel-slide');
 const totalSlides = slides.length;
+const slideInterval = 2900;
 
 document.querySelector('.prevBtn').addEventListener('click', () => {
     changeSlide(-1);
@@ -206,9 +215,9 @@ document.querySelector('.nextBtn').addEventListener('click', () => {
     changeSlide(1);
 });
 
+// Fonction pour changer la diapositive
 function changeSlide(step) {
     slideIndex += step;
-
 
     if (slideIndex >= totalSlides) {
         slideIndex = 0;
@@ -219,5 +228,13 @@ function changeSlide(step) {
     slideArea.style.transform = `translateX(-${slideIndex * 100 / 3}%)`;
 }
 
+let intervalId = setInterval(() => {
+    changeSlide(1);
+}, slideInterval);
 
-slideArea.style.transform = `translateX(-${slideIndex * 100 / 3}%)`;
+function stopAutoSlide() {
+    clearInterval(intervalId);
+}
+
+document.querySelector('.prevBtn').addEventListener('click', stopAutoSlide);
+document.querySelector('.nextBtn').addEventListener('click', stopAutoSlide);

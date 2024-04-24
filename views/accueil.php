@@ -9,7 +9,7 @@
 <body>
 
 <header>
-    <a href="http://projet/?page=accueil">
+    <a href="http://projet/accueil">
         <img src="../assets/img/logo.png" alt="TimeWarp">
     </a>
   <h1 class="titre">Profitez du passé avec la modernité du futur</h1>

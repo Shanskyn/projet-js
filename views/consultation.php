@@ -8,16 +8,6 @@
 </head>
 <body>
 
-<header>
-    <a href="http://projet/?page=accueil">
-        <img src="../assets/img/logo.png" alt="TimeWarp">
-    </a>
-  <h1 class="titre">Profitez du passé avec la modernité du futur</h1>
-  <label class="switch">
-    <input type="checkbox" id="logSwitch">
-    <span class="slider"></span>
-  </label>
-</header>
 
 <?php
 require("menu.html")
