@@ -100,32 +100,30 @@ document.getElementById('left').addEventListener("click", previousMenuItem);
 // 88 `88. `8b  d8' 88  V888 88   88 88  88  88   .88.   
 // YP   YD  `Y88P'  VP   V8P YP   YP YP  YP  YP Y888888P
 
-  let sequence = ""; // Variable pour stocker la séquence de boutons
-    let lastPressTime = 0; // Variable pour stocker le temps du dernier appui sur un bouton
-    const secretCode = "upupdowndownleftrightleftrightba"; // Code secret à vérifier
+  let sequence = "";
+    let lastPressTime = 0;
+    const secretCode = "upupdowndownleftrightleftrightba";
 
-   
-    // Fonction pour vérifier si la séquence correspond au code secret
+  
     function checkSecretCode(sequence) {
         if (sequence === secretCode) {
             window.location.href = "?page=snake";
         }
     }
 
-    // Ajout d'écouteurs d'événements à chaque bouton de la manette
     const buttons = document.querySelectorAll('#snes-gamepad button');
     buttons.forEach(button => {
         button.addEventListener('click', () => {
             const currentTime = new Date().getTime();
-            if (currentTime - lastPressTime <= 1000) { // Vérifier si le dernier appui était dans le délai d'une seconde
-                sequence += button.id; // Ajouter l'identifiant du bouton à la séquence
+            if (currentTime - lastPressTime <= 1000) {
+                sequence += button.id;
                 console.log("Suite de boutons :", sequence);
-                checkSecretCode(sequence); // Vérifier si la séquence correspond au code secret
+                checkSecretCode(sequence);
             }else {
-                sequence = button.id; // Réinitialiser la séquence si le dernier appui était après une seconde
+                sequence = button.id;
                 console.log("Nouvelle suite de boutons :", sequence);
             }
-            lastPressTime = currentTime; // Mettre à jour le temps du dernier appui
+            lastPressTime = currentTime;
         });
     });
 
@@ -137,26 +135,24 @@ document.getElementById('left').addEventListener("click", previousMenuItem);
 // 88  V888 88.     88 `88. 88  .8D      88   8D `8b  d8' .8P  Y8. 
 // VP   V8P Y88888P 88   YD Y8888D'      Y8888P'  `Y88P'  YP    YP     
 
-// Sélectionnez la boîte de logs
+
 var logBox = document.getElementById('logBox');
 
-// Fonction pour ajouter un message de log dans la boîte
 function addLog(message) {
   var logMessage = document.createElement('p');
   logMessage.textContent = message;
 
-  // Ajouter la nouvelle ligne au début de la boîte de logs
+
   logBox.insertBefore(logMessage, logBox.firstChild);
 
-  // Limiter le nombre de lignes dans la boîte de logs
-  var maxLines = 3; // Nombre maximum de lignes à afficher
+
+  var maxLines = 3;
   var logLines = logBox.querySelectorAll('p');
   if (logLines.length > maxLines) {
     logBox.removeChild(logLines[maxLines]);
   }
 }
 
-// Redirection des logs console vers la boîte de logs
 console.log = function(message) {
   addLog('[LOG] ' + message);
 }
@@ -168,24 +164,60 @@ console.log = function(message) {
 // 88  V888 88.     88 `88. 88  .8D      88  88  88 `8b  d8' 88  .8D 88.     
 // VP   V8P Y88888P 88   YD Y8888D'      YP  YP  YP  `Y88P'  Y8888D' Y88888P
 
-// Sélectionnez l'interrupteur et la boîte de logs
+
 var logSwitch = document.getElementById('logSwitch');
 var logBox = document.getElementById('logBox');
 var snes = document.getElementById('snes-gamepad');
-var cam = document.getElementById('camera');
+var carousel = document.getElementById('carousel-container');
 
-// Ajoutez un événement "change" à l'interrupteur
+
 logSwitch.addEventListener('change', function() {
-  // Si l'interrupteur est coché, affichez la boîte de logs, sinon cachez-la
   if (logSwitch.checked) {
-    logBox.style.display = 'block'; // Affiche la boîte de logs
+    logBox.style.display = 'block';
     snes.style.display = 'block';
-    camera.style.display = 'block';
+    document.querySelector('.carousel').style.display = 'none'; // Utilisation de la classe .carousel
     console.log("Nerd mode activé");
   } else {
-    logBox.style.display = 'none'; // Cache la boîte de logs
+    logBox.style.display = 'none';
     snes.style.display = 'none';
-    camera.style.display = 'none';
+    document.querySelector('.carousel').style.display = 'block'; // Utilisation de la classe .carousel
     console.log("Nerd mode désactivé");
   }
 });
+
+
+//  .o88b.  .d8b.  d8888b.  .d88b.  db    db .d8888. d88888b db      
+// d8P  Y8 d8' `8b 88  `8D .8P  Y8. 88    88 88'  YP 88'     88      
+// 8P      88ooo88 88oobY' 88    88 88    88 `8bo.   88ooooo 88      
+// 8b      88~~~88 88`8b   88    88 88    88   `Y8b. 88~~~~~ 88      
+// Y8b  d8 88   88 88 `88. `8b  d8' 88b  d88 db   8D 88.     88booo. 
+//  `Y88P' YP   YP 88   YD  `Y88P'  ~Y8888P' `8888Y' Y88888P Y88888P 
+
+let slideIndex = 0;
+const slides = document.querySelectorAll('.carousel-slide img');
+const slideArea = document.querySelector('.carousel-slide');
+const totalSlides = slides.length;
+
+document.querySelector('.prevBtn').addEventListener('click', () => {
+    changeSlide(-1);
+});
+
+document.querySelector('.nextBtn').addEventListener('click', () => {
+    changeSlide(1);
+});
+
+function changeSlide(step) {
+    slideIndex += step;
+
+
+    if (slideIndex >= totalSlides) {
+        slideIndex = 0;
+    } else if (slideIndex < 0) {
+        slideIndex = totalSlides - 1;
+    }
+
+    slideArea.style.transform = `translateX(-${slideIndex * 100 / 3}%)`;
+}
+
+
+slideArea.style.transform = `translateX(-${slideIndex * 100 / 3}%)`;

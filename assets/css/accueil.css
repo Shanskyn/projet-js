@@ -25,14 +25,13 @@ header {
     border-bottom-right-radius: 20px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); 
     display: flex;
-    align-items: center;
-    justify-content: center; 
+    align-items: center; 
 }
 
 
 header img {
-    width: 100px; 
-    height: 50px; 
+    width: 125px; 
+    height: 60px; 
     margin-right: 20px; 
     align-self: flex-start; 
 }
@@ -42,7 +41,8 @@ header img {
     margin: 0;
     font-size: 36px;
     color: #fff; 
-    text-shadow: 0 0 10px #55b9f3, 0 0 20px #55b9f3, 0 0 30px #55b9f3, 0 0 40px #1f08b1, 0 0 70px #1f08b1, 0 0 80px #1f08b1, 0 0 100px #1f08b1; /* Effet néon pour le titre */
+    text-shadow: 0 0 10px #55b9f3, 0 0 20px #55b9f3, 0 0 30px #55b9f3, 0 0 40px #1f08b1, 0 0 70px #1f08b1, 0 0 80px #1f08b1, 0 0 100px #1f08b1;
+    margin-left: 25%;
 }
 
 nav {
@@ -84,20 +84,23 @@ a:hover {
 }
 
 footer {
-    font-family: Teko, Helvetica, Arial, sans-serif;
-    background-color: transparent;
-    text-align: center;
-    border-top-left-radius: 2vmin;
-    border-top-right-radius: 2vmin;
-    padding: 1vmin;
-    position: fixed;
-    bottom: 0;
-    height: 6vmin;
-    width: 100%;
-    box-shadow: 0 -1vmin 2vmin rgba(0, 140, 255, 0.3);
-    font-size: 3vmin;
-    color: #fff;
-    text-shadow: 0 0 2vmin #55b9f3, 0 0 4vmin #55b9f3, 0 0 6vmin #55b9f3, 0 0 8vmin #1f08b1, 0 0 14vmin #1f08b1, 0 0 16vmin #1f08b1, 0 0 20vmin #1f08b1;
+  font-family: Teko, Helvetica, Arial, sans-serif;
+  background-color: transparent;
+  text-align: center;
+  border-top-left-radius: 2vmin;
+  border-top-right-radius: 2vmin;
+  padding: 0; /* Ajusté pour enlever le padding qui peut interférer avec le centrage */
+  position: fixed;
+  bottom: 0;
+  height: 6vmin;
+  width: 100%;
+  box-shadow: 0 -1vmin 2vmin rgba(0, 140, 255, 0.3);
+  font-size: 3vmin;
+  color: #fff;
+  text-shadow: 0 0 2vmin #55b9f3, 0 0 4vmin #55b9f3, 0 0 6vmin #55b9f3, 0 0 8vmin #1f08b1, 0 0 14vmin #1f08b1, 0 0 16vmin #1f08b1, 0 0 20vmin #1f08b1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 /*.d8888. d8b   db d88888b .d8888. 
@@ -119,12 +122,11 @@ footer {
     text-shadow: 0 0 10px #55b9f3, 0 0 20px #55b9f3, 0 0 30px #55b9f3, 0 0 40px #1f08b1, 0 0 70px #1f08b1, 0 0 80px #1f08b1, 0 0 100px #1f08b1;
   }
   
-  *:focus {
+  #snes-gamepad *:focus {
     outline: 0.25vmin dashed red;
     outline-offset: 0.5vmin;
   }
   
-  /* Camera angle */
   input[type="radio"] {
     position: absolute;
     left: -1000in;
@@ -198,7 +200,6 @@ footer {
     gap: 0.125vmin;
   }
   
-  /* Gamepad code */
   #snes-gamepad { 
     display: none;
     --x: 0;
@@ -289,7 +290,7 @@ footer {
     transform: translateZ(calc(var(--pos) * 12));
   }
   
-  button {
+  #snes-gamepad button {
     border: 0;
     color: transparent;
     background: transparent;
@@ -297,14 +298,12 @@ footer {
     transform-style: preserve-3d;
   }
   
-  button.active,
-  /* gamepad controlled */
+  #snes-gamepad button.active,
   button:active {
     --pos: 0.05;
   }
   
   
-  /* general frame */
   .face,
   .face div {
     --pos: -0.7vmin;
@@ -313,14 +312,11 @@ footer {
     width: 100%;
     height: 100%;
     background:
-      /* buttons circle */
       radial-gradient(closest-side, #0000 97%, #fff2 99%, #0000 0) 48vmin 2vmin / 30vmin 30vmin no-repeat,
       radial-gradient(closest-side, var(--gray) 99%, #0002 99.8%, #0000 100%) 48vmin 2vmin / 30vmin 30vmin no-repeat,
-      /* axis circle */
       radial-gradient(farthest-side at 100% 50%, #0000 94%, #00000002 99.9%, #0000 0) 7.5vmin 7.5vmin / 9.5vmin 19vmin no-repeat,
       radial-gradient(farthest-side at 1vmin 50%, #0000 96%, #ffffff1f 99.9%, #0000 0) 16vmin 7.5vmin / 10.5vmin 19vmin no-repeat,
       radial-gradient(farthest-side, #0000 80%, #00000004 99.9%, #0000 0) 7.5vmin 7.5vmin / 19vmin 19vmin no-repeat,
-      /* general shape */
       radial-gradient(circle at 17vmin 17vmin, var(--gray-light) 16.95vmin, #0000 17vmin),
       radial-gradient(circle at 63vmin 17vmin, var(--gray-light) 16.95vmin, #0000 17vmin),
       linear-gradient(#0000, #fff2 0.01%, #0000 2% 98%, #0001) 50% 0 / 46vmin 30vmin no-repeat,
@@ -336,7 +332,6 @@ footer {
       linear-gradient(var(--gray-light) 0 0) 50% 0 / 46vmin 30vmin no-repeat;
   }
   
-  /* Text (all) */
     .esperluette {
     top: 3.5vmin;
     left: 45%;
@@ -347,7 +342,6 @@ footer {
     color: var(--gray-dark);
     font-weight: 300;
     color: #fff;
-    /* Texte blanc */
     text-shadow: 0 0 10px #55b9f3, 0 0 20px #55b9f3, 0 0 30px #55b9f3, 0 0 40px #1f08b1, 0 0 70px #1f08b1, 0 0 80px #1f08b1, 0 0 100px #1f08b1;
   }
   
@@ -396,7 +390,6 @@ footer {
     left: 62%;
   }
   
-  /* Top buttons */
   #l,
   #r {
     --pos: -0.2vmin;
@@ -425,7 +418,6 @@ footer {
   }
   
   #l.active,
-  /* gamepad js */
   #l:active {
     box-shadow:
       inset 0 0.125vmin 0.25vmin #0002,
@@ -442,7 +434,6 @@ footer {
   }
   
   #r.active,
-  /* gamepad js */
   #r:active {
     box-shadow:
       inset 0 0.125vmin 0.25vmin #0002,
@@ -451,7 +442,6 @@ footer {
     transform: scaleX(-1) translateZ(-2.75vmin) translateY(1vmin);
   }
   
-  /* axis */
   .axis,
   .axis div {
     --color: #111;
@@ -500,7 +490,7 @@ footer {
       linear-gradient(#fff1, #fff0 20% 80%, #fff1),
       linear-gradient(90deg, #fff1, #fff0 20% 80%, #fff1),
       var(--shadows);
-    /*   width: 13.5vmin; */
+      width: 13.5vmin;
     box-shadow:
       inset 0 0 2vmin -0.5vmin #0009,
       inset -4.5vmin -4.5vmin 3vmin #2102,
@@ -521,7 +511,7 @@ footer {
     background:
       radial-gradient(#0000, #0002);
     box-shadow:
-      /*     inset 1vmin 1vmin 1vmin -0.5vmin #0002, */
+      inset 1vmin 1vmin 1vmin -0.5vmin #0002,
       inset -0.25vmin 0 0.5vmin #28282855,
       inset 0 0 1vmin 0.25vmin #28282855,
       inset -1vmin -0.25vmin 0.5vmin -0.25vmin #ffffff11;
@@ -558,34 +548,29 @@ footer {
   }
   
   #up.active~.axis div,
-  /* gamepad js */
   #up:active~.axis div {
     transform-origin: 50% 100%;
     transform: translateZ(calc(var(--pos) * var(--z))) rotateX(5deg);
   }
   
   #down.active~.axis div,
-  /* gamepad js */
   #down:active~.axis div {
     transform-origin: 50% 0%;
     transform: translateZ(calc(var(--pos) * var(--z))) rotateX(-5deg);
   }
   
   #left.active~.axis div,
-  /* gamepad js */
   #left:active~.axis div {
     transform-origin: 100% 50%;
     transform: translateZ(calc(var(--pos) * var(--z))) rotateY(-5deg);
   }
   
   #right.active~.axis div,
-  /* gamepad js */
   #right:active~.axis div {
     transform-origin: 0% 50%;
     transform: translateZ(calc(var(--pos) * var(--z))) rotateY(5deg);
   }
-  
-  /* Menu buttons */
+
   #select,
   #start {
     width: 6vmin;
@@ -597,7 +582,7 @@ footer {
     left: 32.5vmin;
     box-shadow:
       0 0 0 0.2vmin #0007,
-      /*     0 0 0.3vmin 0.1vmin #0008, */
+      0 0 0.3vmin 0.1vmin #0008,
       0 0 0.3vmin 0.1vmin #fff4,
       0 0 0 0.2vmin #0002,
       0 0.5vmin 0.5vmin #0004;
@@ -663,7 +648,6 @@ footer {
   }
   
   
-  /* Action buttons */
   button.circle,
   button.circle div {
     --shadow:
@@ -756,7 +740,6 @@ footer {
     left: 9.75vmin;
   }
   
-  /* cord */
   #cord {
     width: 2vmin;
     aspect-ratio: 1;
@@ -833,17 +816,14 @@ footer {
   .simulateur {
     display: flex;
     justify-content: flex-start;
-    /* Déplacer vers la gauche de la page */
     align-items: center;
     height: 100vh;
     margin-left: 30px;
-    /* Ajouter une marge à gauche pour décaler la boîte */
   }
   
   .boite-dialogue {
     background-color: #000;
     border: 2px solid #00ff00;
-    /* Bordure verte similaire à celle de l'invite de commande Windows */
     width: 400px;
     padding: 20px;
     height: 200px;
@@ -853,38 +833,29 @@ footer {
   .nav-bar {
     margin-bottom: 15px;
     display: flex;
-    /* Permet d'afficher les éléments en ligne */
   }
   
   .nav-bar button {
     flex: 1;
-    /* Permet aux éléments de prendre autant d'espace que nécessaire */
     margin-right: 10px;
-    /* Marge entre les boutons */
     background-color: #000;
     border: none;
     color: #00ff00;
-    /* Texte vert similaire à celui de l'invite de commande Windows */
     font-size: 14px;
     cursor: pointer;
     padding: 8px;
     outline: none;
-    /* Supprimer la bordure autour du bouton lorsqu'il est cliqué */
   }
   
   .nav-bar button:hover {
     background-color: #00ff00;
-    /* Changement de couleur au survol */
     color: #000;
-    /* Texte noir au survol */
   }
   
   .contenu {
     border: 1px solid #00ff00;
-    /* Bordure verte similaire à celle de l'invite de commande Windows */
     background-color: #000;
     color: #fff;
-    /* Texte blanc similaire à celui de l'invite de commande Windows */
     padding: 10px;
     margin-top: 10px;
   }
@@ -970,3 +941,152 @@ footer {
         -ms-transform: translateX(26px);
         transform: translateX(26px);
       }
+
+/* 
+     .o88b.  .d8b.  d8888b.  .d88b.  db    db .d8888. d88888b db      
+    d8P  Y8 d8' `8b 88  `8D .8P  Y8. 88    88 88'  YP 88'     88      
+    8P      88ooo88 88oobY' 88    88 88    88 `8bo.   88ooooo 88      
+    8b      88~~~88 88`8b   88    88 88    88   `Y8b. 88~~~~~ 88      
+    Y8b  d8 88   88 88 `88. `8b  d8' 88b  d88 db   8D 88.     88booo. 
+     `Y88P' YP   YP 88   YD  `Y88P'  ~Y8888P' `8888Y' Y88888P Y88888P  */
+                                                                        
+
+
+.content-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+
+.carousel-container {
+  display: block;
+  position: relative;
+  max-width: 300px;
+  height: auto;
+  overflow: hidden;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: 30px;
+  margin-top: 117px;
+}
+
+.carousel-slide {
+  display: flex;
+  width: 300%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide img {
+  width: 33.33333333%;
+  height: auto;
+  object-fit: cover;
+  border-top: 2px solid #33ff33;
+  border-bottom: 2px solid #33ff33;
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.carousel-controls button {
+  background-color: #222;
+  color: #33ff33;
+  border: 1px solid #33ff33;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 16px;
+  margin: 0 5px;
+}
+
+.prevBtn::after,
+.nextBtn::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 20px;
+  border-color: transparent transparent transparent #33ff33;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.prevBtn::after {
+  border-width: 10px 20px 10px 0;
+  border-color: transparent #33ff33 transparent transparent;
+  left: 10px;
+}
+
+.nextBtn::after {
+  right: 10px;
+}
+
+.prevBtn,
+.nextBtn{
+  background-color: transparent;
+  border-color: transparent;
+}
+
+.carousel-slide {
+  display: flex;
+  overflow: hidden;
+}
+
+.carousel-slide img {
+  height: auto;
+  object-fit: cover;
+}      
+
+
+/* d8888b. d88888b .d8888. d8888b.  .d88b.  d8b   db .d8888. d888888b db    db d88888b 
+   88  `8D 88'     88'  YP 88  `8D .8P  Y8. 888o  88 88'  YP   `88'   88    88 88'     
+   88oobY' 88ooooo `8bo.   88oodD' 88    88 88V8o 88 `8bo.      88    Y8    8P 88ooooo 
+   88`8b   88~~~~~   `Y8b. 88~~~   88    88 88 V8o88   `Y8b.    88    `8b  d8' 88~~~~~ 
+   88 `88. 88.     db   8D 88      `8b  d8' 88  V888 db   8D   .88.    `8bd8'  88.     
+   88   YD Y88888P `8888Y' 88       `Y88P'  VP   V8P `8888Y' Y888888P    YP    Y88888P  */
+
+
+@media (max-width: 768px) {
+  .content-wrapper {
+      flex-direction: column;
+  }
+
+  .simulateur, .carousel-container {
+      width: 100%;
+      margin: 10px 0;
+  }
+  .titre {
+    font-size: 1rem;
+  }
+  .simulateur {
+    height: 80px;
+    margin-top: 200px;
+  }
+}
+
+
+@media (max-width: 1000px) {
+  .titre {
+      font-size: 1.5rem;
+  }
+  .switch {
+      display: none;
+  }
+  header {
+      width: 100%;
+  }
+  footer {
+    font-size: 1.5rem;
+  }
+  #camera{
+    display: none;
+  }
+}

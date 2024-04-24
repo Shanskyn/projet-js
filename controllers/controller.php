@@ -36,13 +36,11 @@ function DisplaySnake() {
  * @throws Exception Si il y a une erreur lors de l'affichage de l'accueil
  */
 function DisplayConsultation() {
-    try {
+    
         require("models/model.php");
         $data = DbAfficher();
         require("views/consultation.php");
-    } catch (Exception $e) {
-        throw new Exception("Une erreur est survenue lors de l'affichage de la page de consultation.");
-    }
+    
 }
 
 /**
