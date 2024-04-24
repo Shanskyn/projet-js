@@ -115,7 +115,7 @@ function clickSelectedMenu() {
   
     function checkSecretCode(sequence) {
         if (sequence === secretCode) {
-            window.location.href = "?page=snake";
+            window.location.href = "snake";
         }
     }
 

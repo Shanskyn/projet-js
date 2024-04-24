@@ -13,7 +13,9 @@ h1 {
     font-size: 36px;
     color: #fff; /* Texte blanc */
     text-shadow: 0 0 10px #55b9f3, 0 0 20px #55b9f3, 0 0 30px #55b9f3, 0 0 40px #1f08b1, 0 0 70px #1f08b1, 0 0 80px #1f08b1, 0 0 100px #1f08b1; /* Effet néon pour le titre */
+    text-align: center ;
 }
+
 
 ul {
     list-style-type: none;
@@ -99,9 +101,4 @@ table button:hover {
 
 .open-modal:hover {
     background-color: #1f08b1; /* Fond bouton sombre au survol */
-}
-
-
-.recherche {
-    margin-bottom: 15px;
 }

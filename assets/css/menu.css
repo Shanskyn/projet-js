@@ -26,6 +26,38 @@ header img {
     margin-left: 25%;
 }
 
+#inputRecherche {
+    caret-color: blue;
+    caret-shape: underscore ;
+    margin-left: 25px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    padding: 10px 15px;
+    border: 2px solid #0000ff;
+    border-radius: 25px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+  
+  #inputRecherche::placeholder {
+    color: #aaa;
+  }
+  
+  #inputRecherche:hover {
+    border-color: #0074D9;
+  }
+  
+  #inputRecherche:focus {
+    border-color: #0000ff;
+    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
+  }
+  
+  #inputRecherche:hover::placeholder {
+    color: #0074D9;
+  }
+  
+  
+
 @media (max-width: 768px) {
     .titre {
       font-size: 1rem;

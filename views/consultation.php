@@ -15,15 +15,6 @@ require("menu.html")
 
 <div id="container">
     <h1>Liste des Jeux</h1>
-    <input type="text" id="inputRecherche" placeholder="Rechercher...">
-    <button id="boutonRechercher">Rechercher</button>
-    <label for="selectFiltre">Filtre :
-        <select id="selectFiltre">
-            <option value="Nom">Nom</option>
-            <option value="Editeur">Editeur</option>
-            <option value="Studio">Studio</option>
-        </select>
-    </label>
     <table id="jeux-liste">
         <thead>
         <tr>
