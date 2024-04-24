@@ -40,21 +40,6 @@ class controller
         }
     }
 
-<<<<<<< HEAD
-/**
- * Affiche la page consultation.
- * La fonction requiert l'utilisation de la base de données.
- * @return void
- * @throws Exception Si il y a une erreur lors de l'affichage de l'accueil
- */
-function DisplayConsultation() {
-    
-        require("models/model.php");
-        $data = DbAfficher();
-        require("views/consultation.php");
-    
-}
-=======
     /**
      * Affiche le jeu Snake après avoir tapé le Konami Code
      * @return void
@@ -68,7 +53,6 @@ function DisplayConsultation() {
             throw new Exception("Une erreur est survenue lors de l'affichage du jeu Snake.");
         }
     }
->>>>>>> 3597d04884e1c3250a117e186084c6d01af15751
 
     /**
      * Affiche la page consultation.
@@ -106,15 +90,6 @@ function DisplayConsultation() {
         }
     }
 
-<<<<<<< HEAD
-/**
- * Affiche la page d'ajout de livre.
- */
-function DisplayAjouter(){
-    require("views/ajout.php");
-}
-=======
->>>>>>> 3597d04884e1c3250a117e186084c6d01af15751
 
     /**
      * Une page secrète.
