@@ -19,22 +19,27 @@ require("menu.html")
 <div id="container">
     <h1>Liste des Jeux</h1>
     <input type="text" id="inputRecherche" placeholder="Rechercher...">
-    <table id="jeux-liste">
-        <thead>
-        <tr>
-            <th id="titre">Titre</th>
-            <th id="studio">Studio</th>
-            <th id="editeur">Editeur</th>
-            <th id="annee">Année</th>
-            <th id="sommaire">Sommaire</th>
-            <th id="genre">Genre</th>
-            <th id="support">Support</th>
-        </tr>
-        </thead>
-        <tbody>
+    <div id="jeux-container">
+        <!-- Les cartes de jeux seront injectées ici par JavaScript -->
+    </div>
 
-        </tbody>
-    </table>
+    <!--    <table id="jeux-liste">
+            <thead>
+            <tr>
+                <th id="titre">Titre</th>
+                <th id="studio">Studio</th>
+                <th id="editeur">Editeur</th>
+                <th id="annee">Année</th>
+                <th id="sommaire">Sommaire</th>
+                <th id="genre">Genre</th>
+                <th id="support">Support</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <p id="showNone"></p>-->
     <script src="../assets/js/consultation.js"></script>
 </div>
 </body>
