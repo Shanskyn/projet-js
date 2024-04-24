@@ -19,13 +19,11 @@
   </label>
 </header>
 
-<nav>
-    <ul>
-        <li><a href="?page=accueil">Accueil</a></li>
-        <li><a href="?page=ajout">Ajouter</a></li>
-    </ul>
-</nav>
+<?php
+require("menu.html")
+?>
 
+<<<<<<< HEAD
 <div class="container">
     <h2>Liste des jeux</br></h2>
     <div class="recherche">
@@ -68,6 +66,38 @@
 <footer>
     <p>&copy; 2024 TimeWarp. Tous droits réservés.</p>
 </footer>
+=======
+<div id="container">
+    <h1>Liste des Jeux</h1>
+    <input type="text" id="inputRecherche" placeholder="Rechercher...">
+    <button id="boutonRechercher">Rechercher</button>
+    <label for="selectFiltre">Filtre :
+        <select id="selectFiltre">
+            <option value="Nom">Nom</option>
+            <option value="Editeur">Editeur</option>
+            <option value="Studio">Studio</option>
+        </select>
+    </label>
+    <table id="jeux-liste">
+        <thead>
+        <tr>
+            <th id="titre">Titre</th>
+            <th id="studio">Studio</th>
+            <th id="editeur">Editeur</th>
+            <th id="annee">Année</th>
+            <th id="sommaire">Sommaire</th>
+            <th id="genre">Genre</th>
+            <th id="support">Support</th>
+        </tr>
+        </thead>
+        <tbody>
 
+        </tbody>
+    </table>
+    <script src="../assets/js/consultation.js"></script>
+</div>
 </body>
+<?php
+require("footer.html")
+?>
 </html>

@@ -98,14 +98,6 @@ h1 {
     text-shadow: 0 0 10px #55b9f3, 0 0 20px #55b9f3, 0 0 30px #55b9f3, 0 0 40px #1f08b1, 0 0 70px #1f08b1, 0 0 80px #1f08b1, 0 0 100px #1f08b1; /* Effet néon pour le titre */
 }
 
-nav {
-    background-color: #1f1f1f; /* Fond sombre */
-    border-radius: 20px;
-    margin-top: 10px;
-    padding: 10px 0;
-    text-align: center;
-}
-
 ul {
     list-style-type: none;
     margin: 0;
@@ -192,16 +184,6 @@ table button:hover {
     background-color: #1f08b1; /* Fond bouton sombre au survol */
 }
 
-footer {
-    background-color: #1f1f1f; /* Fond sombre */
-    color: #55b9f3; /* Texte bleu vif */
-    text-align: center;
-    padding: 10px;
-    position: relative;
-    bottom: 0;
-    width: 100%;
-    box-shadow: 0 -10px 20px rgba(0, 0, 0, 0.3); /* Ombre au-dessus du footer */
-}
 
 .recherche {
     margin-bottom: 15px;

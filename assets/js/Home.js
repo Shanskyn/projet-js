@@ -28,7 +28,7 @@ document.getElementById('menu1').addEventListener('mouseover', function() {
 });
 
 document.getElementById('menu1').addEventListener('click', function() {
-    window.location.href = '?page=accueil';
+    window.location.href = '/';
 });
 
 document.getElementById('menu2').addEventListener('mouseover', function() {
@@ -36,7 +36,7 @@ document.getElementById('menu2').addEventListener('mouseover', function() {
 });
 
 document.getElementById('menu2').addEventListener('click', function() {
-    window.location.href = '?page=consultation';
+    window.location.href = '/consultation';
 });
 
 document.getElementById('menu3').addEventListener('mouseover', function() {
@@ -44,7 +44,7 @@ document.getElementById('menu3').addEventListener('mouseover', function() {
 });
 
 document.getElementById('menu3').addEventListener('click', function() {
-    window.location.href = '?page=';
+    window.location.href = '/';
 });
 
 

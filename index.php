@@ -9,7 +9,11 @@
  * @date 03/19/2024
  */
 
+require __DIR__ . '/vendor/autoload.php';
+use App\Controllers\controller;
+$controller = new controller();
 
+<<<<<<< HEAD
 require("controllers/controller.php");
 /**
  * Ces conditions analysent les variables en GET, c'est via "menu.html" que c'est essentiellement utilisé
@@ -30,39 +34,58 @@ if(isset($_GET["page"]) && !empty($_GET["page"])){
         DisplayAjouter();
     }else if($page == "404"){
         Display404();
+=======
+$page = $_SERVER['REQUEST_URI'] ?? '/';
+$serverMethod = $_SERVER["REQUEST_METHOD"];
+
+/*if ($serverMethod === "DELETE"){Z
+    header("Content-Type: application/json");
+    echo json_encode([
+        "key" => "value"
+    ]);
+    die();
+}*/
+
+if ($page === "/")
+    try {
+        $controller->DisplayAccueil();
+    } catch (Exception $e) {
+>>>>>>> 3597d04884e1c3250a117e186084c6d01af15751
     }
-    else if($page == "snake"){
-        DisplaySnake();
+else if ($page === "/api/games")
+    try {
+        $controller->GameListAPI();
+    } catch (Exception $e) {
     }
-    else {
-        Display404();
+else if ($page === "/consultation")
+    try {
+        $controller->DisplayConsultation();
+    } catch (Exception $e) {
+    }
+else if ($page === "/accueil")
+    try {
+        $controller->DisplayAccueil();
+    } catch (Exception $e) {
+    }
+else if ($page === "/test")
+    try {
+        $controller->DisplayTest();
+    } catch (Exception $e) {
+    }
+else if ($page === "/snake")
+    try {
+        $controller->DisplaySnake();
+    } catch (Exception $e) {
+    }
+else if ($page === "/404")
+    try {
+        $controller->Display404();
+    } catch (Exception $e) {
+    }
+else
+    try {
+        $controller->Display404();
+    } catch (Exception $e) {
     }
 
-/**
- * Ces conditions analysent des variables en POST ou en GET, et ont des conditions plus spécifiques
- * Si elle existe et qu'elle n'est pas vide, elle redirige vers une fonction de "controller.php" selon sa valeur
- * Sinon elle redirige vers l'acceuil
- */
-}else if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['isAjout']) && $_POST['isAjout'] && isset($_POST['Livre']) && !empty($_POST['Livre'])) {
-    $livre = $_POST['Livre'];
-    Ajouter($livre);
-
-}else if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['isSuppr']) && $_POST['isSuppr'] && isset($_POST['id']) && !empty($_POST['id'])) {
-    $id = $_POST['id'];
-    SupprLivre($id);
-
-}else if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['isModif1']) && $_POST['isModif1'] && isset($_POST['idLivre']) && !empty($_POST['idLivre'])) {
-    $id = $_POST['idLivre'];
-    DisplayModif2($id);
-
-}else if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['isModif2']) && $_POST['isModif2'] && isset($_POST['Livre']) && !empty($_POST['Livre'])) {
-    $livre = $_POST['Livre'];
-    Modifier($livre);
-
-}else if ($_SERVER["REQUEST_METHOD"] == "GET" && isset($_GET['res_rech']) && !empty($_GET['res_rech'])){
-    $mot = $_GET['res_rech'];
-    DisplayRechercher($mot);
-
-}else{
-    DisplayAccueil();
-}
+die();

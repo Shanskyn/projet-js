@@ -7,28 +7,40 @@
  * @author Shansky
  * @date 03/19/2024
  */
+namespace App\Controllers;
+use Exception;
 
-/**
- * Affiche l'accueil.
- * @return void
- * @throws Exception Si il y a une erreur lors de l'affichage de l'accueil.
- */
-function DisplayAccueil() {
-    try {
-        require("views/accueil.php");
-    } catch (Exception $e) {
-        throw new Exception("Une erreur est survenue lors de l'affichage de l'accueil.");
+class controller
+{
+    /**
+     * Affiche l'accueil.
+     * @return void
+     * @throws Exception Si il y a une erreur lors de l'affichage de l'accueil.
+     */
+    function DisplayAccueil(): void
+    {
+        try {
+            require("views/accueil.php");
+        } catch (Exception $e) {
+            throw new Exception("Une erreur est survenue lors de l'affichage de l'accueil.");
+        }
     }
-}
 
-function DisplaySnake() {
-    try {
-        require("views/snake.html");
-    } catch (Exception $e) {
-        throw new Exception("Une erreur est survenue lors de l'affichage de l'accueil.");
+    /**
+     * Affiche une page test
+     * @return void
+     * @throws Exception Si il y a une erreur lors de l'affichage de l'accueil.
+     */
+    function DisplayTest(): void
+    {
+        try {
+            require("views/test.php");
+        } catch (Exception $e) {
+            throw new Exception("Une erreur est survenue lors de l'affichage du test.");
+        }
     }
-}
 
+<<<<<<< HEAD
 /**
  * Affiche la page consultation.
  * La fonction requiert l'utilisation de la base de données.
@@ -42,104 +54,90 @@ function DisplayConsultation() {
         require("views/consultation.php");
     
 }
-
-/**
- * Affiche la page modification.
- * La fonction requiert l'utilisation de la base de données.
- * @return void
- * @throws Exception Si il y a une erreur lors de l'affichage de l'accueil
- */
-function DisplayModification() {
-    try {
-        require("models/model.php");
-        $data = DbAfficher();
-        require("views/modification.php");
-    } catch (Exception $e) {
-        throw new Exception("Une erreur est survenue lors de l'affichage de la page de modification");
+=======
+    /**
+     * Affiche le jeu Snake après avoir tapé le Konami Code
+     * @return void
+     * @throws Exception Si il y a une erreur lors de l'affichage du jeu Snake
+     */
+    function DisplaySnake(): void
+    {
+        try {
+            require("views/snake.html");
+        } catch (Exception $e) {
+            throw new Exception("Une erreur est survenue lors de l'affichage du jeu Snake.");
+        }
     }
-}
+>>>>>>> 3597d04884e1c3250a117e186084c6d01af15751
 
-/**
- * Une page secrète.
- * Permet d'afficher les différents information de l'interpréteur PHP à des fins de débogage.
- */
-function DisplayInfoPHP() {
-    require("views/menu.html");
-    phpinfo();
-}
+    /**
+     * Affiche la page consultation.
+     * La fonction requiert l'utilisation de la base de données.
+     * @return void
+     * @throws Exception Si il y a une erreur lors de l'affichage de l'accueil
+     */
+    function DisplayConsultation(): void
+    {
+        try {
+            require("models/model.php");
+            $data = DbAfficher();
+            require("views/consultation.php");
+        } catch (Exception $e) {
+            throw new Exception("Une erreur est survenue lors de l'affichage de la page de consultation.");
+        }
+    }
 
+    /**
+     * Renvoie le Json qui contient tous les jeux.
+     * La fonction requiert l'utilisation de la base de données.
+     * @return void
+     * @throws Exception En cas d'erreur lors de l'affichage de la liste des jeux.
+     */
+    function GameListAPI(): void
+    {
+        try {
+            require("models/model.php");
+            $data = DbAfficher();
+            header('Content-Type: application/json');
+            echo $data;
+            die();
+        } catch (Exception $e) {
+            throw new Exception("Une erreur est survenue lors de l'affichage de la liste des jeux en Json..");
+        }
+    }
+
+<<<<<<< HEAD
 /**
  * Affiche la page d'ajout de livre.
  */
 function DisplayAjouter(){
     require("views/ajout.php");
 }
+=======
+>>>>>>> 3597d04884e1c3250a117e186084c6d01af15751
 
-/**
- * Affiche la page de résultat de recherche.
- * La fonction requiert l'utilisation de la base de données.
- * @param string $mot La fonction doit avoir un mot en paramètre pour effectuer une recherche dans la base.
- */
-function DisplayRechercher($mot){
-    require("models/model.php");
-    $data = rechercherLivre($mot);
-    require("views/rechercher.php");
-}
+    /**
+     * Une page secrète.
+     * @return void
+     * Permet d'afficher les différents information de l'interpréteur PHP à des fins de débogage.
+     */
+    function DisplayInfoPHP(): void
+    {
+        require("views/menu.html");
+        phpinfo();
+    }
 
-/**
- * Fonction de suppression de livre.
- * La fonction requiert l'utilisation de la base de données.
- * @param int $id La fonction doit avoir un id sur lequel se référer afin de le supprimer dans la base.
- * @return void Elle redirige vers la page de consultation.
- */
-function SupprLivre($id) {
-    require("models/model.php");
-    supprId($id);
-    header("location:../index.php?page=consultation");
-}
-
-/**
- * Fonction d'ajout de livre.
- * @param array $livre La fonction doit avoir un tableau contenant les différentes informations du livre en paramètres
- * La fonction requiert l'utilisation de la base de données.
- * Elle redirige vers la page de consultation.
- */
-function Ajouter($livre) {
-    $titre = $livre['titre'];
-    $auteur = $livre['auteur'];
-    $annee = $livre['annee'];
-    $resume = $livre['resume'];
-    require("models/model.php");
-    ajouterLivre($titre, $auteur, $annee, $resume);
-    header("location:../index.php?page=consultation");
-}
-
-/**
- * Affiche la page de modification d'un livre.
- * La fonction requiert l'utilisation de la base de données.
- * @param int $id La fonction doit avoir un id sur lequel se référer afin d'afficher les information du livre
- */
-function DisplayModif2($id) {
-    require("models/model.php");
-    $livre = afficherLivre($id);
-    require("views/modification2.php");
-}
-
-function Display404(){
-    require("views/404.php");
-}
-
-/**
- * Fonction de modification d'un livre.
- * La fonction requiert l'utilisation de la base de données.
- * @param array $livre La fonction doit avoir en paramètre un tableau contenant les informations modifiées du livre.
- */
-function Modifier($livre) {
-    require("models/model.php");
-    $id = $livre['id'];
-    $titre = $livre['titre'];
-    $auteur = $livre['auteur'];
-    $annee = $livre['annee'];
-    $resume = $livre['resume'];
-    modifierLivre($id, $titre, $auteur, $annee, $resume);
+    /**
+     * Affiche la page 404, qui apparaît quand on demande une page inconnue au routeur.
+     * @return void
+     * @throws Exception En cas d'erreur d'affichage pour la page 404.
+     */
+    function Display404(): void
+    {
+        try {
+            require("views/404.php");
+        } catch (Exception $e) {
+            throw new Exception("Une erreur est survenue lors de l'affichage de la page 404.");
+        }
+    }
 }
