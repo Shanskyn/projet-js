@@ -11,16 +11,16 @@ function AfficherJeux(jeux) {
         titre.textContent = jeu.titre
 
         let annee = document.createElement('td')
-        annee.textContent = jeu.annee
+        annee.textContent = jeu.studio
 
         let support = document.createElement('td')
         support.textContent = jeu.support
 
         let studio = document.createElement('td')
-        studio.textContent = jeu.studio
+        studio.textContent = jeu.editeur  
 
         let editeur = document.createElement('td')
-        editeur.textContent = jeu.editeur
+        editeur.textContent = jeu.annee
 
         let sommaire = document.createElement('td')
         sommaire.textContent = jeu.sommaire
