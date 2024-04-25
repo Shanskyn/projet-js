@@ -1,48 +1,93 @@
+document.addEventListener("DOMContentLoaded", function() {
+    let jeuxData = []; // Pour stocker les données des jeux
+
+    // Chargement initial des données
+    fetch("/api/games").then(r => r.json()).then(jsonData => {
+        jeuxData = jsonData;
+        AfficherJeux(jeuxData);
+    });
+
+    const inputRecherche = document.getElementById('inputRecherche');
+    const selectFiltre = document.getElementById('selectFiltre');
+
+    // Écouteur d'événements pour la recherche en temps réel
+    inputRecherche.addEventListener('input', function() {
+        rechercher(inputRecherche.value, selectFiltre.value);
+    });
+});
+
+/*
+function showNone() {
+    const tableau = document.getElementById('jeux-liste');
+    const showNone = document.getElementById('showNone')
+    showNone.textContent = "Il n'y a rien dans le tableau";
+    tableau.style.display = 'none';
+}
+
+function showTab() {
+    const tableau = document.getElementById('jeux-liste');
+    const showNone = document.getElementById('showNone')
+    showNone.textContent = "";
+    tableau.style.display = '';
+}
+*/
+
+
+function rechercher(searchText) {
+    fetch("/api/games").then(r => r.json()).then(jsonData => {
+        if (searchText.trim() === "") {
+            AfficherJeux(jsonData);
+        } /*else {
+            const filteredGames = jsonData.filter(jeu => jeu['titre'].toLowerCase().includes(searchText.toLowerCase()));
+            if (filteredGames.length === 0 ) {
+                showNone()
+            } else {
+                showTab();
+                AfficherJeux(filteredGames);
+            }*/
+        else {
+            const filteredGames = jsonData.filter(jeu => jeu['titre'].toLowerCase().includes(searchText.toLowerCase()));
+            AfficherJeux(filteredGames);
+        }
+    });
+}
 
 
 function AfficherJeux(jeux) {
-
-    const insertTarget = document.querySelector('tbody')
+    const container = document.getElementById('jeux-container');
+    container.innerHTML = '';
 
     jeux.forEach(jeu => {
-        let tr = document.createElement('tr')
+        let card = document.createElement('div');
+        card.className = 'card';
 
-        let titre = document.createElement('td')
-        titre.textContent = jeu.titre
+        let cardInner = document.createElement('div');
+        cardInner.className = 'card-inner';
 
-        let annee = document.createElement('td')
-        annee.textContent = jeu.studio
+        let cardFront = document.createElement('div');
+        cardFront.className = 'card-face card-front';
+        cardFront.innerHTML = `<h2>${jeu.titre}</h2>
+                               <p>${jeu.studio}</p>
+                               <p>${jeu.editeur}</p>
+                               <p>${jeu.annee}</p>
+                               <p>${jeu.genre}</p>
+                               <p>${jeu.support}</p>`;
 
-        let support = document.createElement('td')
-        support.textContent = jeu.support
+        let cardBack = document.createElement('div');
+        cardBack.className = 'card-face card-back';
+        cardBack.innerHTML = `<p>${jeu.sommaire}</p>`;
 
-        let studio = document.createElement('td')
-        studio.textContent = jeu.editeur  
+        cardInner.appendChild(cardFront);
+        cardInner.appendChild(cardBack);
+        card.appendChild(cardInner);
 
-        let editeur = document.createElement('td')
-        editeur.textContent = jeu.annee
-
-        let sommaire = document.createElement('td')
-        sommaire.textContent = jeu.sommaire
-
-        let genre = document.createElement('td')
-        genre.textContent = jeu.genre
-
-        tr.appendChild(titre)
-        tr.appendChild(annee)
-        tr.appendChild(studio)
-        tr.appendChild(editeur)
-        tr.appendChild(sommaire)
-        tr.appendChild(genre)
-
-        insertTarget.appendChild(tr)
-    })
+        container.appendChild(card);
+    });
 }
-document.addEventListener("DOMContentLoaded", function() {
-    fetch("/api/games").then(r => {
-        return r.json()
-    }).then(jsonData => {
-        AfficherJeux(jsonData)
-    })
-})
 
+
+const inputRecherche = document.getElementById('inputRecherche');
+
+inputRecherche.addEventListener('input', function() {
+    rechercher(inputRecherche.value);
+});

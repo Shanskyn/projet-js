@@ -1,47 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 - Page Not Found</title>
-  <link rel="stylesheet" href="../assets/css/404.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Erreur 404 - Page non trouvée</title>
+    <link rel="stylesheet" href="../assets/css/404.css">
 </head>
 <body>
-<main>
-	
-
-<div class="carousel_wrapper">
-  <div class="carousel">
-    <div class="slide one">
-      <img src="../assets/img/PSVITA.png" />
+    <div class="container">
+        <h1>Erreur 404</h1>
+        <p>Oups! La page que vous cherchez n'existe pas.</p>
+        <p>Retournez à <a href="/">la page d'accueil</a> pour trouver votre prochaine aventure.</p>
     </div>
-    <div class="slide two">
-      <img src="https://images.unsplash.com/photo-1487235829740-e0ac5a286e1c" />
-    </div>
-    <div class="slide three">
-      <img src="https://images.unsplash.com/photo-1473813585561-ec87eac91e39" />
-    </div>
-    <div class="slide four">
-      <img src="http://nasa-images.com/wp-content/uploads/2011/05/261.jpg" />
-    </div>
-    <div class="slide five">
-      <img src="http://hdwallpaperfun.com/wp-content/uploads/2014/08/Outer-Space-Wallpaper-Background-HQ.jpg" />
-    </div>
-    <div class="slide six">
-      <img src="https://images.unsplash.com/photo-1479409286066-c0b2f4f4a332" />
-    </div>
-    <div class="slide seven">
-      <img src="http://cdn.wonderfulengineering.com/wp-content/uploads/2014/04/space-wallpaper-4.jpg" />
-    </div>
-    <div class="slide eight">
-      <img src="http://shareyourwallpapers.com/upload/wallpaper/3d-and-digital-art/3d-space/3d-space_f48db6ca.jpg" />
-    </div>
-    <div class="slide nine">
-      <img src="https://images.unsplash.com/photo-1446776709462-d6b525c57bd3" />
-    </div>
-  </div><!-- / .carousel -->
-</div>
-
-</main>
 </body>
 </html>
