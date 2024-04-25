@@ -41,7 +41,7 @@ header img {
     margin: 0;
     font-size: 36px;
     color: #fff; 
-    text-shadow: 0 0 10px #55b9f3, 0 0 20px #55b9f3, 0 0 30px #55b9f3, 0 0 40px #1f08b1, 0 0 70px #1f08b1, 0 0 80px #1f08b1, 0 0 100px #1f08b1;
+    text-shadow: 0 0 5px #55b9f3, 0 0 10px #55b9f3, 0 0 15px #1f08b1, 0 0 20px #1f08b1;
     margin-left: 25%;
 }
 

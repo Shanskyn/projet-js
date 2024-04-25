@@ -22,40 +22,38 @@ header img {
     margin: 0;
     font-size: 36px;
     color: #fff; 
-    text-shadow: 0 0 10px #55b9f3, 0 0 20px #55b9f3, 0 0 30px #55b9f3, 0 0 40px #1f08b1, 0 0 70px #1f08b1, 0 0 80px #1f08b1, 0 0 100px #1f08b1;
+    text-shadow: 0 0 5px #55b9f3, 0 0 10px #55b9f3, 0 0 15px #1f08b1, 0 0 20px #1f08b1;
     margin-left: 25%;
 }
 
 #inputRecherche {
-    caret-color: blue;
-    caret-shape: underscore ;
-    margin-left: 25px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 16px;
-    padding: 10px 15px;
-    border: 2px solid #0000ff;
-    border-radius: 25px;
-    outline: none;
-    transition: border-color 0.3s ease;
-  }
-  
-  #inputRecherche::placeholder {
-    color: #aaa;
-  }
-  
-  #inputRecherche:hover {
-    border-color: #0074D9;
-  }
-  
-  #inputRecherche:focus {
-    border-color: #0000ff;
-    box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
-  }
-  
-  #inputRecherche:hover::placeholder {
-    color: #0074D9;
-  }
-  
+  width: 40px; /* Taille initiale pour montrer un champ très étroit */
+  caret-color: blue;
+  caret-shape: underscore;
+  margin-left: 25px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+  padding: 10px 15px;
+  border: 2px solid #0000ff;
+  border-radius: 25px;
+  outline: none;
+  transition: width 0.5s ease, border-color 0.3s ease; /* Transition sur la largeur et la couleur de la bordure */
+  background-color: white; /* Ajoutez une couleur de fond si nécessaire */
+}
+
+#inputRecherche::placeholder {
+  color: #aaa; /* Couleur du placeholder */
+}
+
+#inputRecherche:hover,
+#inputRecherche:focus {
+  width: 240px; /* Largeur sur hover ou focus */
+  border-color: #0074D9;
+}
+
+#inputRecherche:focus {
+  box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2); /* Style de focus pour la visibilité */
+}
   
 
 @media (max-width: 768px) {
