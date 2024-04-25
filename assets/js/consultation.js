@@ -16,6 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+/*
 function showNone() {
     const tableau = document.getElementById('jeux-liste');
     const showNone = document.getElementById('showNone')
@@ -29,6 +30,7 @@ function showTab() {
     showNone.textContent = "";
     tableau.style.display = '';
 }
+*/
 
 
 function rechercher(searchText) {

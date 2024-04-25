@@ -18,7 +18,6 @@ require("menu.html")
 
 <div id="container">
     <h1>Liste des Jeux</h1>
-    <input type="text" id="inputRecherche" placeholder="Rechercher...">
     <div id="jeux-container">
         <!-- Les cartes de jeux seront injectées ici par JavaScript -->
     </div>
