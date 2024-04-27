@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="../assets/css/consultation.css">
 </head>
 <body>
-
 <?php
 require("menu.html")
 ?>

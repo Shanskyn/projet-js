@@ -238,3 +238,7 @@ function stopAutoSlide() {
 
 document.querySelector('.prevBtn').addEventListener('click', stopAutoSlide);
 document.querySelector('.nextBtn').addEventListener('click', stopAutoSlide);
+
+
+
+
