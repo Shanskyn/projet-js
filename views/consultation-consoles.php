@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Consultation</title>
-    <link rel="stylesheet" href="../assets/css/consultation.css">
+    <link rel="stylesheet" href="../assets/css/consultation-consoles.css">
 </head>
 <body>
 
@@ -17,8 +17,8 @@ require("menu.html")
 ?>
 
 <div id="container">
-    <h1>Liste des Jeux</h1>
-    <div id="jeux-container">
+    <h1>Liste des Consoles</h1>
+    <div id="consoles-container">
         <!-- Les cartes de jeux seront injectées ici par JavaScript -->
     </div>
 
@@ -39,7 +39,7 @@ require("menu.html")
             </tbody>
         </table>
         <p id="showNone"></p>-->
-    <script src="../assets/js/consultation.js"></script>
+    <script src="../assets/js/consultation-consoles.js"></script>
 </div>
 </body>
 <?php

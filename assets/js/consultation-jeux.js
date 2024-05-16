@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     let jeuxData = []; // Pour stocker les données des jeux
 
     // Chargement initial des données
-    fetch("/api/games").then(r => r.json()).then(jsonData => {
+    fetch("/api/jeux").then(r => r.json()).then(jsonData => {
         jeuxData = jsonData;
         AfficherJeux(jeuxData);
     });
@@ -34,7 +34,7 @@ function showTab() {
 
 
 function rechercher(searchText) {
-    fetch("/api/games").then(r => r.json()).then(jsonData => {
+    fetch("/api/jeux").then(r => r.json()).then(jsonData => {
         if (searchText.trim() === "") {
             AfficherJeux(jsonData);
         } /*else {

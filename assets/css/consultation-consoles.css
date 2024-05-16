@@ -1,0 +1,162 @@
+body {
+    font-family: 'Roboto', sans-serif; /* Polices futuristes */
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Fond sombre */
+    color: #fff; /* Texte blanc */
+}
+
+header {
+    background-color: #1f1f1f; /* Fond header sombre */
+    color: #55b9f3; /* Texte header bleu vif */
+    padding: 20px;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Ombre sous le header */
+}
+
+h1 {
+    margin: 0;
+    font-size: 36px;
+    color: #fff; /* Texte blanc */
+    text-shadow: 0 0 10px #55b9f3, 0 0 20px #55b9f3, 0 0 30px #55b9f3, 0 0 40px #1f08b1, 0 0 70px #1f08b1, 0 0 80px #1f08b1, 0 0 100px #1f08b1; /* Effet néon pour le titre */
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    display: inline;
+    margin-right: 20px;
+}
+
+li a {
+    color: #55b9f3; /* Texte bleu vif */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #fff; /* Texte blanc au survol */
+}
+
+.container {
+    background-color: #1f1f1f; /* Fond sombre */
+    padding: 20px;
+    margin: 20px;
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Ombre plus prononcée */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #1f1f1f; /* Fond sombre */
+    color: #fff; /* Texte blanc */
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+th {
+    background-color: #55b9f3; /* Fond header bleu vif */
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #1a1a1a; /* Fond sombre */
+}
+
+tr:hover {
+    background-color: #333; /* Fond sombre plus foncé au survol */
+}
+
+table button {
+    background-color: #55b9f3; /* Fond bouton bleu vif */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+table button:hover {
+    background-color: #1f08b1; /* Fond bouton sombre au survol */
+}
+
+.open-modal {
+    text-decoration: none;
+    background-color: #55b9f3; /* Fond bouton bleu vif */
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.open-modal:hover {
+    background-color: #1f08b1; /* Fond bouton sombre au survol */
+}
+
+
+.recherche {
+    margin-bottom: 15px;
+}
+
+#consoles-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+.card {
+    width: 300px; /* ou en pourcentage si vous voulez qu'elles soient plus responsives */
+    min-height: 200px;
+    perspective: 1000px; /* Profondeur de perspective pour l'effet flip */
+}
+
+.card-inner {
+    width: 100%;
+    height: 100%;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+    position: relative;
+}
+
+.card:hover .card-inner {
+    transform: rotateY(180deg); /* Flip la carte sur survol - vous pouvez changer cela pour un clic via JS */
+}
+
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Cache la face arrière lorsqu'elle est tournée */
+    backface-visibility: hidden;
+}
+
+.card-front,
+.card-back {
+    background-color: #1f1f1f; /* Fond sombre */
+    color: #fff; /* Texte blanc */
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+.card-back {
+    transform: rotateY(180deg);
+}

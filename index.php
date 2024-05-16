@@ -29,14 +29,24 @@ if ($page === "/")
         $controller->DisplayAccueil();
     } catch (Exception $e) {
     }
-else if ($page === "/api/games")
+else if ($page === "/api/jeux")
     try {
-        $controller->GameListAPI();
+        $controller->ListerAPIJeux();
     } catch (Exception $e) {
     }
-else if ($page === "/consultation")
+else if ($page === "/api/consoles")
     try {
-        $controller->DisplayConsultation();
+        $controller->ListerAPIConsoles();
+    } catch (Exception $e) {
+    }
+else if ($page === "/consultation/jeux")
+    try {
+        $controller->DisplayConsultationJeux();
+    } catch (Exception $e) {
+    }
+else if ($page === "/consultation/consoles")
+    try {
+        $controller->DisplayConsultationConsoles();
     } catch (Exception $e) {
     }
 else if ($page === "/accueil")

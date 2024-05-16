@@ -55,19 +55,34 @@ class controller
     }
 
     /**
-     * Affiche la page consultation.
+     * Affiche la page consultation les jeux.
      * La fonction requiert l'utilisation de la base de données.
      * @return void
-     * @throws Exception Si il y a une erreur lors de l'affichage de l'accueil
+     * @throws Exception Si il y a une erreur lors de l'affichage de consultation
      */
-    function DisplayConsultation(): void
+    function DisplayConsultationJeux(): void
     {
         try {
             require("models/model.php");
-            $data = DbAfficher();
-            require("views/consultation.php");
+            require("views/consultation-jeux.php");
         } catch (Exception $e) {
             throw new Exception("Une erreur est survenue lors de l'affichage de la page de consultation.");
+        }
+    }
+
+    /**
+     * Affiche la page consultation pour les consoles.
+     * La fonction requiert l'utilisation de la base de données.
+     * @return void
+     * @throws Exception Si il y a une erreur lors de l'affichage de consulation-console
+     */
+    function DisplayConsultationConsoles(): void
+    {
+        try {
+            require("models/model.php");
+            require("views/consultation-consoles.php");
+        } catch (Exception $e) {
+            throw new Exception("Une erreur est survenue lors de l'affichage de la page de consultation-console.");
         }
     }
 
@@ -77,16 +92,35 @@ class controller
      * @return void
      * @throws Exception En cas d'erreur lors de l'affichage de la liste des jeux.
      */
-    function GameListAPI(): void
+    function ListerAPIJeux(): void
     {
         try {
             require("models/model.php");
-            $data = DbAfficher();
+            $data = DbAPIjeux();
             header('Content-Type: application/json');
             echo $data;
             die();
         } catch (Exception $e) {
             throw new Exception("Une erreur est survenue lors de l'affichage de la liste des jeux en Json..");
+        }
+    }
+
+    /**
+     * Renvoie le Json qui contient toutes les consoles.
+     * La fonction requiert l'utilisation de la base de données.
+     * @return void
+     * @throws Exception En cas d'erreur lors de l'affichage de la liste des consoles.
+     */
+    function ListerAPIConsoles(): void
+    {
+        try {
+            require("models/model.php");
+            $data = DbAPIconsoles();
+            header('Content-Type: application/json');
+            echo $data;
+            die();
+        } catch (Exception $e) {
+            throw new Exception("Une erreur est survenue lors de l'affichage de la liste des consoles en Json..");
         }
     }
 

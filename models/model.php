@@ -30,9 +30,9 @@ function DbConnexion(): PDO
  * Fonction d'affichage de toute la base de données.
  * Nécessaire pour la page de consultation.
  * @return false|string Renvoie un tableau de tableau contenant tous les tuples de la base de données.
- * @throws Exception Si une erreur survient lors de l'affichage des livres.
+ * @throws Exception Si une erreur survient lors de l'affichage des jeux.
  */
-function DbAfficher(): false|string
+function DbAPIjeux(): false|string
 {
     try {
         $db = DbConnexion();
@@ -43,6 +43,26 @@ function DbAfficher(): false|string
         return json_encode($result);
     } catch (PDOException|Exception $e) {
         throw new Exception("Une erreur est survenue lors du renvoi des jeux en .json.");
+    }
+}
+
+/**
+ * Fonction d'affichage de toute la base de données.
+ * Nécessaire pour la page de consultation.
+ * @return false|string Renvoie un tableau de tableau contenant tous les tuples de la base de données.
+ * @throws Exception Si une erreur survient lors de l'affichage des consoles.
+ */
+function DbAPIconsoles(): false|string
+{
+    try {
+        $db = DbConnexion();
+        $sql = "SELECT * FROM console";
+        $statement = $db->prepare($sql);
+        $statement->execute();
+        $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+        return json_encode($result);
+    } catch (PDOException|Exception $e) {
+        throw new Exception("Une erreur est survenue lors du renvoi des consoles en .json.");
     }
 }
 
